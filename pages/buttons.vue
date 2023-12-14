@@ -20,16 +20,31 @@
 
     <div class="flex flex-col items-center gap-2">
       <Heading size="sm">Outline Buttons</Heading>
-      <Button @click="onClick" size="xs" variant="outline">Some text (xs)</Button>
-      <Button @click="onClick" size="sm" variant="outline">Some text (sm)</Button>
-      <Button @click="onClick" size="md" variant="outline">Some text (md)</Button>
-      <Button @click="onClick" size="lg" variant="outline">Some text (lg)</Button>
-      <Button @click="onClick" size="xl" variant="outline">Some text (xl)</Button>
+      <Button @click="onClick" size="xs" variant="outline"
+        >Some text (xs)</Button
+      >
+      <Button @click="onClick" size="sm" variant="outline"
+        >Some text (sm)</Button
+      >
+      <Button @click="onClick" size="md" variant="outline"
+        >Some text (md)</Button
+      >
+      <Button @click="onClick" size="lg" variant="outline"
+        >Some text (lg)</Button
+      >
+      <Button @click="onClick" size="xl" variant="outline"
+        >Some text (xl)</Button
+      >
     </div>
   </div>
 </template>
 
 <script setup>
+definePageMeta({
+  title: "Component: Button",
+  description: "Nuxt UI button components",
+});
+
 const onClick = (e) => {
   console.log("button works!");
 };

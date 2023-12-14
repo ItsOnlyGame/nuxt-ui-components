@@ -3,7 +3,8 @@
 </template>
 
 <script setup>
-const onClick = (e) => {
-  console.log("button works!");
-};
+definePageMeta({
+  title: "Home",
+  description: "Nuxt UI components",
+});
 </script>

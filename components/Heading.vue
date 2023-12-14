@@ -8,7 +8,7 @@
 import { tv, type VariantProps } from "tailwind-variants";
 
 const heading = tv({
-  base: "font-bold text-black dark:text-white",
+  base: "font-bold text-black dark:text-white w-max",
   variants: {
     size: {
       xs: "text-xl",

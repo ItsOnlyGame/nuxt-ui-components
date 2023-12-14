@@ -1,6 +1,8 @@
 <template>
   <button
-    :class="button({ size: props.size, type: props.type, class: props.class })"
+    :class="
+      button({ size: props.size, variant: props.variant, class: props.class })
+    "
     @click.once="(e) => $emit('click', e)"
   >
     <span>
@@ -15,9 +17,9 @@ import { tv, type VariantProps } from "tailwind-variants";
 const button = tv({
   base: "font-semibold text-primary-950 dark:text-primary-50 rounded active:opacity-80 whitespace-nowrap transition-colors",
   variants: {
-    type: {
+    variant: {
       solid: "bg-primary-500 hover:bg-primary-700",
-      ghost: "bg-transparent hover:bg-primary-700",
+      ghost: "bg-transparent hover:bg-primary-700 hover:bg-opacity-40",
       outline: "bg-primary-500 bg-opacity-40 hover:bg-primary-700",
     },
     size: {
@@ -30,14 +32,14 @@ const button = tv({
   },
   defaultVariants: {
     size: "md",
-    type: "solid",
+    variant: "solid",
   },
 });
 
 type ButtonVariants = VariantProps<typeof button>;
 type Props = {
   size?: ButtonVariants["size"];
-  type?: ButtonVariants["type"];
+  variant?: ButtonVariants["variant"];
   class?: string;
 };
 

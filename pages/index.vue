@@ -4,7 +4,7 @@
 
 <script setup>
 definePageMeta({
-  title: "Home",
-  description: "Nuxt UI components",
-});
+  title: 'Home',
+  description: 'Nuxt UI components',
+})
 </script>

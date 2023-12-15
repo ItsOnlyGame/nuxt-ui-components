@@ -1,10 +1,15 @@
-import { withTV } from "tailwind-variants/transformer";
-
-export default withTV({
-  content: ["./index.html", "./src/**/*.{vue,css}"],
+/** @type {import('tailwindcss').Config} */
+export default {
+  darkMode: 'class',
+  content: ["./pages/**/*.{vue,css}", "./components/**/*.{vue,css}", "./assets/**/*.{vue,css}"],
   theme: {
     extend: {
       colors: {
+        body: {
+          light: '#fff',
+          dark: '#000000'
+        },
+
         primary: {
           50: "#f2f7fb",
           100: "#e7f0f8",
@@ -22,4 +27,4 @@ export default withTV({
     },
   },
   plugins: [],
-});
+};

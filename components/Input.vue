@@ -8,7 +8,7 @@
       :class="input()"
       :value="modelValue"
       @input="emitUpdate"
-      pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+      :pattern="pattern"
     />
     <label :for="inputId" :class="label()">
       {{ props.label }}
@@ -31,9 +31,9 @@ const inputVariants = tv({
   variants: {
     variant: {
       default: {
-        label: 'bg-body-light text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800',
-        input: 'rounded border-2 border-primary-500 text-primary-950 placeholder-transparent focus:border-primary-700 invalid:border-red-500',
-        small: 'text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800',
+        label: 'bg-body-light text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400',
+        input: 'rounded border-2 border-primary-500 text-primary-950 placeholder-transparent focus:border-primary-700 invalid:border-red-500 disabled:border-stone-400 disabled:bg-transparent',
+        small: 'text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400',
       },
     },
     size: {
@@ -62,13 +62,19 @@ const inputVariants = tv({
 
 type InputVariants = VariantProps<typeof inputVariants>
 type Props = {
+  // Customization props
   variant?: InputVariants['variant']
   size?: InputVariants['size']
   class?: string
+
+  // Label and helper text props
   helper?: string
   label?: string
-  disabled?: boolean
+  
+  // Text input props
   modelValue?: string
+  disabled?: boolean
+  pattern?: string
 }
 
 const emit = defineEmits(['update:modelValue'])

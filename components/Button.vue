@@ -16,9 +16,9 @@ const button = tv({
   base: 'whitespace-nowrap rounded font-semibold text-primary-950 transition-colors active:opacity-80 dark:text-primary-50',
   variants: {
     variant: {
-      solid: 'bg-primary-500 hover:bg-primary-700',
-      ghost: 'bg-transparent hover:bg-primary-700 hover:bg-opacity-40',
-      outline: 'bg-primary-500 bg-opacity-40 hover:bg-primary-700',
+      solid: 'bg-primary-400 hover:bg-primary-500',
+      ghost: 'bg-transparent hover:bg-primary-300 hover:bg-opacity-40',
+      outline: 'bg-primary-400 bg-opacity-40 hover:bg-primary-500',
     },
     size: {
       xs: 'px-3 py-1 text-sm',

@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-12">
     <div>
       <span>
-        Currently {{ checkedCount }} many checkboxes are checked!
+        Currently {{ checkedCount }} checkboxes are checked!
       </span>
     </div>
 

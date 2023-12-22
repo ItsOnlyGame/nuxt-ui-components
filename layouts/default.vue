@@ -20,6 +20,10 @@
         <NuxtLink to="/checkbox">
           <Button variant="ghost"> Checkbox </Button>
         </NuxtLink>
+
+        <NuxtLink to="/textarea">
+          <Button variant="ghost"> Textarea </Button>
+        </NuxtLink>
       </div>
     </header>
 

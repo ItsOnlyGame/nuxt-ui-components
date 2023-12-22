@@ -47,8 +47,8 @@ const checkboxVariants = tv({
     variant: {
       default: {
         checkbox:
-          'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:border-slate-100 disabled:bg-slate-50',
-        label: 'text-black peer-disabled:text-slate-400',
+          'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:border-primary-200 disabled:bg-primary-100',
+        label: 'text-black peer-disabled:text-slate-500',
         small: 'text-primary-500 peer-invalid:text-red-500',
         svg: 'fill-white stroke-white -rotate-90 opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
       }

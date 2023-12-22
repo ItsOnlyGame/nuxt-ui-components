@@ -1,6 +1,8 @@
 # Nuxt UI Components
 This is a collection of UI components created in Nuxt 3.
 
+### This is under development. Changes will occur and the project is still in early stages of development.
+
 ## Why did I create this?
 
 I got tired of different UI components with their somewhat limited styling.  

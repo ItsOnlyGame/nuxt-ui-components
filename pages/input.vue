@@ -31,7 +31,7 @@
 <script setup>
 definePageMeta({
   title: 'Component: Input',
-  description: 'Nuxt UI input component',
+  description: 'Nuxt UI input component'
 })
 
 const text = ref('Some text')

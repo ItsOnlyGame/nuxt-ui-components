@@ -32,7 +32,7 @@
 <script setup>
 definePageMeta({
   title: 'Component: Button',
-  description: 'Nuxt UI button components',
+  description: 'Nuxt UI button components'
 })
 
 const onClick = (e) => {

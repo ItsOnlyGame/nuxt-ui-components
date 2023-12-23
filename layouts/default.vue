@@ -24,6 +24,10 @@
         <NuxtLink to="/textarea">
           <Button variant="ghost"> Textarea </Button>
         </NuxtLink>
+
+        <NuxtLink to="/modals">
+          <Button variant="ghost"> Modals </Button>
+        </NuxtLink>
       </div>
     </header>
 

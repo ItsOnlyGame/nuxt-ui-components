@@ -11,5 +11,11 @@ export default defineNuxtConfig({
     classSuffix: '',
     preference: 'light',
     storageKey: 'color-mode'
-  }
+  },
+  components: [
+    {
+      path: '~/components',
+      pathPrefix: false
+    }
+  ]
 })

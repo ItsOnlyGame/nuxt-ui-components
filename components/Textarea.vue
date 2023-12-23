@@ -26,7 +26,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 const textareaVariants = tv({
   slots: {
     base: 'relative flex flex-col',
-    textarea: 'peer relative w-full outline-none transition-all disabled:cursor-not-allowed',
+    textarea: 'peer relative w-full outline-none transition-colors disabled:cursor-not-allowed',
     label: 'absolute z-[1] transition-all',
     small: 'flex w-full justify-between transition-all'
   },

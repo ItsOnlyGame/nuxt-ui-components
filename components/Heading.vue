@@ -15,17 +15,17 @@ const heading = tv({
       sm: 'text-2xl',
       md: 'text-3xl',
       lg: 'text-4xl',
-      xl: 'text-5xl',
+      xl: 'text-5xl'
     },
     color: {
       default: 'text-black',
-      primary: 'text-primary-900',
-    },
+      primary: 'text-primary-900'
+    }
   },
   defaultVariants: {
     size: 'md',
-    color: 'primary',
-  },
+    color: 'primary'
+  }
 })
 
 type HeadingVariants = VariantProps<typeof heading>

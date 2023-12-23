@@ -50,7 +50,7 @@ const checkboxVariants = tv({
           'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:border-primary-200 disabled:bg-primary-100',
         label: 'text-black peer-disabled:text-slate-500',
         small: 'text-primary-500 peer-invalid:text-red-500',
-        svg: 'fill-white stroke-white -rotate-90 opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
+        svg: '-rotate-90 fill-white stroke-white opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
       }
     },
     size: {
@@ -62,7 +62,7 @@ const checkboxVariants = tv({
       },
       md: {
         checkbox: 'h-4 w-4',
-        label: 'pl-2 text-md',
+        label: 'text-md pl-2',
         small: 'py-0.5 pl-[26px] text-xs',
         svg: 'left-0 top-1 h-4 w-4'
       },

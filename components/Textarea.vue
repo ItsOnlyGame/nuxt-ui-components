@@ -34,7 +34,7 @@ const textareaVariants = tv({
     variant: {
       default: {
         textarea:
-          'rounded border-2 border-primary-500 text-primary-950 placeholder-transparent focus:border-primary-700 invalid:border-red-500 disabled:border-stone-400 disabled:bg-transparent',
+          'rounded border-2 border-primary-500 text-primary-950 placeholder-transparent invalid:border-red-500 focus:border-primary-700 disabled:border-stone-400 disabled:bg-transparent',
         label:
           'bg-body-light text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400',
         small: 'text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400'
@@ -47,13 +47,13 @@ const textareaVariants = tv({
         small: 'px-2 py-1 text-xs'
       },
       md: {
-        textarea: 'px-4 py-2.5 text-md',
+        textarea: 'text-md px-4 py-2.5',
         label: '-top-2.5 left-2 px-2 text-sm',
         small: 'px-2 py-1 text-xs'
       },
       lg: {
         textarea: 'px-4 py-3 text-lg',
-        label: '-top-3 left-2 px-2 text-md',
+        label: 'text-md -top-3 left-2 px-2',
         small: 'px-2 py-1 text-xs'
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <button
     :class="button({ size: props.size, variant: props.variant, class: props.class })"
-    @click.once="(e) => $emit('click', e)"
+    @click="(e) => $emit('click', e)"
   >
     <span>
       <slot />
@@ -41,5 +41,6 @@ type Props = {
   class?: string
 }
 
+defineEmits(['click'])
 const props = defineProps<Props>()
 </script>

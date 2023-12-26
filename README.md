@@ -19,7 +19,7 @@ In your own project:
 
 2. Next you need to install tailwind-variants. [Guide](https://www.tailwind-variants.org/docs/getting-started). 
 
-Now in this repositories [components](components/) folder you can find a bunch of UI components.  
+Now in this repositories [components/UI](components/UI/) folder you can find a bunch of UI components.  
 Copy the ones you want into your own project and start playing with them.
 
 

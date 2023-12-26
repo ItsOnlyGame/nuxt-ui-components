@@ -1,7 +1,7 @@
 <template>
   <div>
     <Transition>
-      <div v-if="open" :class="`overlay ${overlay()}`">
+      <div v-if="open" :class="`overlay ${overlay()}`" @click.self="$emit('close')">
         <div :class="`slideover ${slideover()}`">
           <div :class="header()">
             <slot name="header" />

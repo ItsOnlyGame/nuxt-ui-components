@@ -1,5 +1,5 @@
 <template>
-  <h2 :class="heading({ size: props.size, class: props.class })">
+  <h2 :class="headingTV({ size: props.size, class: props.class, color: props.color })">
     <slot />
   </h2>
 </template>
@@ -7,8 +7,8 @@
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const heading = tv({
-  base: 'w-max font-bold text-black dark:text-white',
+const headingTV = tv({
+  base: 'w-max font-bold',
   variants: {
     size: {
       xs: 'text-xl',
@@ -19,7 +19,8 @@ const heading = tv({
     },
     color: {
       default: 'text-black',
-      primary: 'text-primary-900'
+      primary: 'text-primary-900',
+      white: 'text-white'
     }
   },
   defaultVariants: {
@@ -28,9 +29,10 @@ const heading = tv({
   }
 })
 
-type HeadingVariants = VariantProps<typeof heading>
+type HeadingProps = VariantProps<typeof headingTV>
 type Props = {
-  size?: HeadingVariants['size']
+  size?: HeadingProps['size'],
+  color?: HeadingProps['color'],
   class?: string
 }
 

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="flex min-h-screen flex-grow flex-col">
     <Header />
 
-    <div class="flex h-full flex-col items-center p-4">
+    <div class="flex h-full flex-col items-center p-4 flex-grow">
       <div class="flex h-full w-full max-w-7xl flex-col gap-8">
         <Heading class="self-start">
           {{ $route.meta.title }}
@@ -10,6 +10,8 @@
         <slot />
       </div>
     </div>
+
+    <Footer />
   </div>
 </template>
 

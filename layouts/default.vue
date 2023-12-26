@@ -28,6 +28,10 @@
         <NuxtLink to="/modals">
           <Button variant="ghost"> Modals </Button>
         </NuxtLink>
+
+        <NuxtLink to="/slideover">
+          <Button variant="ghost"> Slideover </Button>
+        </NuxtLink>
       </div>
     </header>
 

@@ -1,34 +1,34 @@
 <template>
   <div>
     <Transition>
-      <div v-if="open" :class="`slideover ${slideover()}`">
-        <div :class="header()">
-          <slot name="header" />
+      <div v-if="open" :class="`overlay ${overlay()}`">
+        <div :class="`slideover ${slideover()}`">
+          <div :class="header()">
+            <slot name="header" />
 
-          <button :class="closeButton()" @click="$emit('close')">
-            <span class="relative only:-mx-5">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                stroke-width="1.5"
-                role="graphics-symbol"
-              >
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </span>
-          </button>
-        </div>
+            <button :class="closeButton()" @click="$emit('close')">
+              <span class="relative only:-mx-5">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  role="graphics-symbol"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </span>
+            </button>
+          </div>
 
-        <div class="flex min-w-full flex-col">
-          <slot />
+          <div class="flex min-w-full flex-col">
+            <slot />
+          </div>
         </div>
       </div>
     </Transition>
-
-    <div v-if="overlay && open" :class="overlay()" @click="() => $emit('close')" />
   </div>
 </template>
 
@@ -37,17 +37,17 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const slideoverTV = tv({
   slots: {
+    overlay: 'absolute left-0 top-0 z-20 h-full w-full overflow-x-hidden',
     header: 'mx-6 my-2 flex flex-row items-center justify-between',
     slideover: 'fixed right-0 top-0 z-50 h-screen overflow-auto',
-    overlay: 'fixed left-0 top-0 z-20 h-screen w-screen',
     closeButton:
       'inline-flex cursor-pointer items-center justify-center gap-2 justify-self-center whitespace-nowrap tracking-wide transition duration-300'
   },
   variants: {
     variant: {
       default: {
+        overlay: 'bg-slate-300/20 backdrop-blur-sm',
         slideover: 'bg-primary-950 text-primary-200',
-        overlay: 'bg-stone-600 bg-opacity-70',
         closeButton: 'rounded-full text-white hover:bg-primary-900 focus:bg-primary-800'
       }
     },
@@ -80,30 +80,31 @@ type Props = {
   class?: string
 
   // Slideover props
-  open: boolean,
-  overlay?: boolean
+  open: boolean
 }
 
 defineEmits(['close'])
 
-const props = withDefaults(defineProps<Props>(), {
-  overlay: true
-})
+const props = defineProps<Props>()
 
-const { header, slideover, overlay, closeButton } = slideoverTV({
+const { overlay, header, slideover, closeButton } = slideoverTV({
   size: props.size,
   variant: props.variant
 })
 </script>
 
 <style>
-.slideover.v-enter-active,
-.slideover.v-leave-active {
-  transition: right 300ms ease;
+.overlay.v-enter-active,
+.overlay.v-leave-active,
+.overlay.v-enter-active .slideover,
+.overlay.v-leave-active .slideover {
+  transition: right 250ms cubic-bezier(1, 0, 0, 1);
 }
 
-.slideover.v-enter-from,
-.slideover.v-leave-to {
-  right: -500px;
+.overlay.v-enter-from,
+.overlay.v-leave-to,
+.overlay.v-enter-from .slideover,
+.overlay.v-leave-to .slideover {
+  right: -100%;
 }
 </style>

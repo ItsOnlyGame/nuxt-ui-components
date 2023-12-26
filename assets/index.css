@@ -1,0 +1,16 @@
+/** Scrollbar style */
+::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-800 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary-700;
+}

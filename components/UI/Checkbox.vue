@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const checkboxVariants = tv({
+const checkboxTV = tv({
   slots: {
     base: 'relative flex flex-wrap items-center',
     checkbox:
@@ -47,10 +47,10 @@ const checkboxVariants = tv({
     variant: {
       default: {
         checkbox:
-          'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:border-slate-100 disabled:bg-slate-50',
-        label: 'text-black peer-disabled:text-slate-400',
+          'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:border-primary-200 disabled:bg-primary-100',
+        label: 'text-black peer-disabled:text-slate-500',
         small: 'text-primary-500 peer-invalid:text-red-500',
-        svg: 'fill-white stroke-white -rotate-90 opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
+        svg: '-rotate-90 fill-white stroke-white opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
       }
     },
     size: {
@@ -62,7 +62,7 @@ const checkboxVariants = tv({
       },
       md: {
         checkbox: 'h-4 w-4',
-        label: 'pl-2 text-md',
+        label: 'text-md pl-2',
         small: 'py-0.5 pl-[26px] text-xs',
         svg: 'left-0 top-1 h-4 w-4'
       },
@@ -80,11 +80,11 @@ const checkboxVariants = tv({
   }
 })
 
-type CheckboxVariants = VariantProps<typeof checkboxVariants>
+type CheckboxProps = VariantProps<typeof checkboxTV>
 type Props = {
   // Customization props
-  size?: CheckboxVariants['size']
-  variant?: CheckboxVariants['variant']
+  size?: CheckboxProps['size']
+  variant?: CheckboxProps['variant']
   class?: string
 
   // Label and helper text props
@@ -105,7 +105,7 @@ const emitUpdate = (event: Event) => {
 const props = defineProps<Props>()
 const checkboxId = crypto.randomUUID()
 
-const { base, checkbox, small, label, svg } = checkboxVariants({
+const { base, checkbox, small, label, svg } = checkboxTV({
   size: props.size,
   variant: props.variant
 })

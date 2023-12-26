@@ -1,29 +1,8 @@
 <template>
-  <div>
-    <header class="flex flex-row justify-between gap-2 border-b border-primary-800 px-8 py-3">
-      <NuxtLink to="/">
-        <Heading>Nuxt UI Components</Heading>
-      </NuxtLink>
-      <div>
-        <NuxtLink to="/buttons">
-          <Button variant="ghost"> Buttons </Button>
-        </NuxtLink>
+  <div class="flex min-h-screen flex-grow flex-col">
+    <Header />
 
-        <NuxtLink to="/headings">
-          <Button variant="ghost"> Headings </Button>
-        </NuxtLink>
-
-        <NuxtLink to="/input">
-          <Button variant="ghost"> Input </Button>
-        </NuxtLink>
-
-        <NuxtLink to="/checkbox">
-          <Button variant="ghost"> Checkbox </Button>
-        </NuxtLink>
-      </div>
-    </header>
-
-    <div class="flex h-full flex-col items-center p-4">
+    <div class="flex h-full flex-col items-center p-4 flex-grow">
       <div class="flex h-full w-full max-w-7xl flex-col gap-8">
         <Heading class="self-start">
           {{ $route.meta.title }}
@@ -31,6 +10,8 @@
         <slot />
       </div>
     </div>
+
+    <Footer />
   </div>
 </template>
 

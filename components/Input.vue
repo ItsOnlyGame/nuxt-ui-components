@@ -21,7 +21,7 @@
 
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
-const inputVariants = tv({
+const inputTV = tv({
   slots: {
     base: 'relative flex flex-col',
     input: 'peer relative w-full outline-none transition-all disabled:cursor-not-allowed',
@@ -62,11 +62,11 @@ const inputVariants = tv({
   }
 })
 
-type InputVariants = VariantProps<typeof inputVariants>
+type InputProps = VariantProps<typeof inputTV>
 type Props = {
   // Customization props
-  variant?: InputVariants['variant']
-  size?: InputVariants['size']
+  variant?: InputProps['variant']
+  size?: InputProps['size']
   class?: string
 
   // Label and helper text props
@@ -89,7 +89,7 @@ const props = defineProps<Props>()
 
 const inputId = crypto.randomUUID()
 
-const { base, input, small, label } = inputVariants({
+const { base, input, small, label } = inputTV({
   size: props.size,
   variant: props.variant
 })

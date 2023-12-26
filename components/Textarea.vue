@@ -23,7 +23,7 @@
 
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
-const textareaVariants = tv({
+const textareaTV = tv({
   slots: {
     base: 'relative flex flex-col',
     textarea: 'peer relative w-full outline-none transition-colors disabled:cursor-not-allowed',
@@ -64,11 +64,11 @@ const textareaVariants = tv({
   }
 })
 
-type TextareaVariant = VariantProps<typeof textareaVariants>
+type TextareaProps = VariantProps<typeof textareaTV>
 type Props = {
   // Customization props
-  variant?: TextareaVariant['variant']
-  size?: TextareaVariant['size']
+  variant?: TextareaProps['variant']
+  size?: TextareaProps['size']
   class?: string
 
   // Label and helper text props
@@ -92,7 +92,7 @@ const props = defineProps<Props>()
 
 const textareaId = crypto.randomUUID()
 
-const { base, textarea, small, label } = textareaVariants({
+const { base, textarea, small, label } = textareaTV({
   size: props.size,
   variant: props.variant
 })

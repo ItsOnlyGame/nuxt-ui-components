@@ -34,7 +34,7 @@
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const checkboxVariants = tv({
+const checkboxTV = tv({
   slots: {
     base: 'relative flex flex-wrap items-center',
     checkbox:
@@ -80,11 +80,11 @@ const checkboxVariants = tv({
   }
 })
 
-type CheckboxVariants = VariantProps<typeof checkboxVariants>
+type CheckboxProps = VariantProps<typeof checkboxTV>
 type Props = {
   // Customization props
-  size?: CheckboxVariants['size']
-  variant?: CheckboxVariants['variant']
+  size?: CheckboxProps['size']
+  variant?: CheckboxProps['variant']
   class?: string
 
   // Label and helper text props
@@ -105,7 +105,7 @@ const emitUpdate = (event: Event) => {
 const props = defineProps<Props>()
 const checkboxId = crypto.randomUUID()
 
-const { base, checkbox, small, label, svg } = checkboxVariants({
+const { base, checkbox, small, label, svg } = checkboxTV({
   size: props.size,
   variant: props.variant
 })

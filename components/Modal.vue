@@ -32,7 +32,7 @@
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
 
-const modalVariants = tv({
+const modalTV = tv({
   slots: {
     base: 'fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center',
     header: 'flex items-center',
@@ -79,10 +79,10 @@ const modalVariants = tv({
   }
 })
 
-type ModalVariants = VariantProps<typeof modalVariants>
+type ModalProps = VariantProps<typeof modalTV>
 type Props = {
-  size?: ModalVariants['size']
-  variant?: ModalVariants['variant']
+  size?: ModalProps['size']
+  variant?: ModalProps['variant']
   class?: string
 
   // Label text props
@@ -95,7 +95,7 @@ type Props = {
 defineEmits(['exit'])
 const props = defineProps<Props>()
 
-const { base, modal, headerText, header, exitButton, content } = modalVariants({
+const { base, modal, headerText, header, exitButton, content } = modalTV({
   size: props.size,
   variant: props.variant
 })

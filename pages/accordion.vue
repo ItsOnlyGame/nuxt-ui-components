@@ -130,11 +130,7 @@
 
 <script setup>
 definePageMeta({
-  title: 'Component: Button',
-  description: 'Nuxt UI button components'
+  title: 'Component: Accordion',
+  description: 'Nuxt UI accordion components'
 })
-
-const onClick = (e) => {
-  console.log('button works!')
-}
 </script>

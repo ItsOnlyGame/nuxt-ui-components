@@ -4,7 +4,7 @@
       <span> Current value "{{ value }}" of Select component! </span>
     </div>
 
-    <Heading size="sm">Default Text Input</Heading>
+    <Heading size="sm">Default Select</Heading>
     <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
       <div class="flex flex-col gap-4">
         <Select label="Choose one" v-model="value" size="sm">
@@ -57,8 +57,8 @@
 
 <script setup>
 definePageMeta({
-  title: 'Component: Input',
-  description: 'Nuxt UI input component'
+  title: 'Component: Select',
+  description: 'Nuxt UI select component'
 })
 
 const value = ref('1')

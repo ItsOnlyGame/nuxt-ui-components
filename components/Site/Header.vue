@@ -31,6 +31,10 @@
       <NuxtLink to="/slideover">
         <Button variant="ghost"> Slideover </Button>
       </NuxtLink>
+
+      <NuxtLink to="/select">
+        <Button variant="ghost"> Select </Button>
+      </NuxtLink>
     </div>
   </header>
 </template>

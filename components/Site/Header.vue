@@ -35,6 +35,10 @@
       <NuxtLink to="/select">
         <Button variant="ghost"> Select </Button>
       </NuxtLink>
+
+      <NuxtLink to="/accordion">
+        <Button variant="ghost"> Accordion </Button>
+      </NuxtLink>
     </div>
   </header>
 </template>

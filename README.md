@@ -6,7 +6,11 @@
 
 This is a collection of UI components created in Nuxt 3.
 
-### This is under development. Changes will occur and the project is still in early stages of development.
+#### NOTICE:
+This is under development.  
+Changes will occur and the project is still in early stages of development.  
+- <b>Main</b> branch contains the latest "stable" changes.  
+- <b>Dev</b> branch contains the "unstable" changes.
 
 ## Why did I create this?
 

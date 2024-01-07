@@ -3,9 +3,7 @@
     :class="buttonTV({ size: props.size, variant: props.variant, class: props.class })"
     @click="(e) => $emit('click', e)"
   >
-    <span>
-      <slot />
-    </span>
+    <slot />
   </button>
 </template>
 
@@ -13,7 +11,7 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const buttonTV = tv({
-  base: 'whitespace-nowrap rounded font-semibold text-primary-950 transition-colors active:opacity-80 dark:text-primary-50',
+  base: 'inline-flex flex-row items-center gap-x-2 whitespace-nowrap rounded font-semibold text-primary-950 transition-colors active:opacity-80 dark:text-primary-50',
   variants: {
     variant: {
       solid: 'bg-primary-400 hover:bg-primary-500',

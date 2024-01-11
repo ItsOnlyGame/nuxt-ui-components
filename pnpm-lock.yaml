@@ -13,6 +13,9 @@ dependencies:
     version: 0.1.19(tailwindcss@3.3.6)
 
 devDependencies:
+  '@hypernym/nuxt-anime':
+    specifier: ^2.1.1
+    version: 2.1.1
   '@nuxt/devtools':
     specifier: latest
     version: 1.0.6(nuxt@3.8.2)(vite@5.0.9)
@@ -921,6 +924,13 @@ packages:
 
   /@humanwhocodes/object-schema@2.0.1:
     resolution: {integrity: sha512-dvuCeX5fC9dXgJn9t+X5atfmgQAzUOWqS1254Gh0m6i8wKd10ebXkfNKiRK+1GWi/yTvvLDHpoxLr0xxxeslWw==}
+    dev: true
+
+  /@hypernym/nuxt-anime@2.1.1:
+    resolution: {integrity: sha512-M0PfitJcjOZ96vmmFghCDq0RY7sN2iJTUDZEJEgwzB/1/gqxDZkQMcRmEhNqysX8sQcDBDDlkECgN+Yf+TBhIQ==}
+    dependencies:
+      '@types/animejs': 3.1.12
+      animejs: 3.2.2
     dev: true
 
   /@iconify/collections@1.0.369:
@@ -1930,6 +1940,10 @@ packages:
       minimatch: 9.0.3
     dev: true
 
+  /@types/animejs@3.1.12:
+    resolution: {integrity: sha512-fpdH+ZtlO0kqjTOqRaBdsEmvpRNOayI8k4EVkEtitL5l6wducDOXk0rgQgfZqWf/ZX9DzXrHf257S5i9xTcISQ==}
+    dev: true
+
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
     dev: true
@@ -2473,6 +2487,10 @@ packages:
       fast-json-stable-stringify: 2.1.0
       json-schema-traverse: 0.4.1
       uri-js: 4.4.1
+    dev: true
+
+  /animejs@3.2.2:
+    resolution: {integrity: sha512-Ao95qWLpDPXXM+WrmwcKbl6uNlC5tjnowlaRYtuVDHHoygjtIPfDUoK9NthrlZsQSKjZXlmji2TrBUAVbiH0LQ==}
     dev: true
 
   /ansi-colors@4.1.3:

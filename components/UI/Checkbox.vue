@@ -85,7 +85,6 @@ type Props = {
   // Customization props
   size?: CheckboxProps['size']
   variant?: CheckboxProps['variant']
-  class?: string
 
   // Label and helper text props
   helper?: string

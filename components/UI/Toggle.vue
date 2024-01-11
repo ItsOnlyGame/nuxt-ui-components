@@ -71,7 +71,6 @@ type Props = {
   // Customization props
   size?: ToggleProps['size']
   variant?: ToggleProps['variant']
-  class?: string
 
   // Label and helper text props
   helper?: string

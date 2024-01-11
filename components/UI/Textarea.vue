@@ -69,7 +69,6 @@ type Props = {
   // Customization props
   variant?: TextareaProps['variant']
   size?: TextareaProps['size']
-  class?: string
 
   // Label and helper text props
   helper?: string

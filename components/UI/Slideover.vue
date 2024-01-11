@@ -77,7 +77,6 @@ type Props = {
   // Customization props
   size?: SlideoverProps['size']
   variant?: SlideoverProps['variant']
-  class?: string
 
   // Slideover props
   open: boolean

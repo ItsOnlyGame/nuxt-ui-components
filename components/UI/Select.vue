@@ -78,7 +78,6 @@ type Props = {
   // Customization props
   variant?: SelectProps['variant']
   size?: SelectProps['size']
-  class?: string
 
   // Label and helper text props
   helper?: string

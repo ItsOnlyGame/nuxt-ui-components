@@ -4,45 +4,25 @@
       <Heading>Nuxt UI Components</Heading>
     </NuxtLink>
     <div>
-      <NuxtLink to="/buttons">
-        <Button variant="ghost"> Buttons </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/headings">
-        <Button variant="ghost"> Headings </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/input">
-        <Button variant="ghost"> Input </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/checkbox">
-        <Button variant="ghost"> Checkbox </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/textarea">
-        <Button variant="ghost"> Textarea </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/modals">
-        <Button variant="ghost"> Modals </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/slideover">
-        <Button variant="ghost"> Slideover </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/select">
-        <Button variant="ghost"> Select </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/accordion">
-        <Button variant="ghost"> Accordion </Button>
-      </NuxtLink>
-
-      <NuxtLink to="/dropdown">
-        <Button variant="ghost"> Dropdown </Button>
+      <NuxtLink v-for="route in routes" :to="route.url" :key="route.url">
+        <Button variant="ghost"> {{ route.name }} </Button>
       </NuxtLink>
     </div>
   </header>
 </template>
+
+<script setup lang="ts">
+const routes = [
+  { name: 'Buttons', url: '/buttons' },
+  { name: 'Headings', url: '/headings' },
+  { name: 'Input', url: '/input' },
+  { name: 'Checkbox', url: '/checkbox' },
+  { name: 'Textarea', url: '/textarea' },
+  { name: 'Modals', url: '/modals' },
+  { name: 'Slideover', url: '/slideover' },
+  { name: 'Select', url: '/select' },
+  { name: 'Accordion', url: '/accordion' },
+  { name: 'Dropdown', url: '/dropdown' },
+  { name: 'Toggles', url: '/toggle' }
+]
+</script>

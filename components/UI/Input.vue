@@ -2,7 +2,7 @@
   <div :class="base()">
     <input
       :id="inputId"
-      type="text"
+      :type="$props.type"
       :placeholder="props.label"
       :disabled="props.disabled"
       :class="input()"
@@ -11,10 +11,10 @@
       :pattern="pattern"
     />
     <label :for="inputId" :class="label()">
-      {{ props.label }}
+      {{ $props.label }}
     </label>
     <small :class="small()">
-      <span>{{ props.helper }}</span>
+      <span>{{ $props.helper }}</span>
     </small>
   </div>
 </template>
@@ -77,6 +77,7 @@ type Props = {
   modelValue?: string
   disabled?: boolean
   pattern?: string
+  type?: 'text' | 'password'
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -85,7 +86,9 @@ const emitUpdate = (event: Event) => {
   emit('update:modelValue', inputElement.value)
 }
 
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  type: 'text'
+})
 
 const inputId = crypto.randomUUID()
 

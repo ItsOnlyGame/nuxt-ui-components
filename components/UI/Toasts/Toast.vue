@@ -53,6 +53,9 @@
 </template>
 
 <script lang="ts" setup>
+/**
+ * NOTICE: This component uses a module called '@hypernym/nuxt-anime' to handle the progress bar animation.
+ */
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const toastTV = tv({

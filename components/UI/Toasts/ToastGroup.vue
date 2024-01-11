@@ -1,9 +1,15 @@
 <template>
-  <div class="pointer-events-none fixed left-0 top-0 flex h-screen w-screen flex-col items-center z-50">
+  <div class="pointer-events-none fixed left-0 top-0 z-50 flex h-screen w-screen flex-col items-center">
     <div :class="notificationsTV({ position: $props.position, class: $props.class })">
       <TransitionGroup name="list">
         <div v-for="toast in toastState" :key="toast.id">
-          <Toast :id="toast.id" :title="toast.title" :description="toast.description" :variant="toast.type" :timeout="toast.timeout" />
+          <Toast
+            :id="toast.id"
+            :title="toast.title"
+            :description="toast.description"
+            :variant="toast.type"
+            :timeout="toast.timeout"
+          />
         </div>
       </TransitionGroup>
     </div>
@@ -11,6 +17,11 @@
 </template>
 
 <script lang="ts" setup>
+/**
+ * NOTICE: This component uses a composable called 'toast' to keep track of notifications and handle them.
+ * This component is also dependent on the Toast component, which requires a module called '@hypernym/nuxt-anime'.
+ */
+
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const notificationsTV = tv({

@@ -23,6 +23,7 @@ const routes = [
   { name: 'Select', url: '/select' },
   { name: 'Accordion', url: '/accordion' },
   { name: 'Dropdown', url: '/dropdown' },
-  { name: 'Toggles', url: '/toggle' }
+  { name: 'Toggles', url: '/toggle' },
+  { name: 'Toasts', url: '/toasts' }
 ]
 </script>

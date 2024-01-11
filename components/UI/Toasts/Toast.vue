@@ -1,5 +1,5 @@
 <template>
-  <div :class="toast()" role="alert">
+  <button :class="toast()" role="alert" @click="() => close($props.id)">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       :class="icon()"
@@ -47,7 +47,9 @@
       <h3 :class="title()">{{ $props.title }}</h3>
       <p :class="description()">{{ $props.description }}</p>
     </div>
-  </div>
+
+    <div v-if="props.timeout && props.progress" ref="progressRef" :class="progress()"></div>
+  </button>
 </template>
 
 <script lang="ts" setup>
@@ -55,27 +57,33 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const toastTV = tv({
   slots: {
-    toast: 'flex w-full flex-row items-center gap-4 rounded border',
+    toast: 'relative flex w-full flex-row items-center gap-4 overflow-hidden rounded border text-left',
     icon: '',
     title: 'mb-1 font-semibold',
-    description: 'text-sm'
+    description: 'text-sm',
+    progress: 'absolute bottom-0 left-0 h-0.5 w-full overflow-hidden'
   },
   variants: {
     variant: {
       default: {
-        toast: 'border-primary-950 bg-primary-900 text-primary-200'
+        toast: 'border-primary-100 bg-primary-900 text-primary-200',
+        progress: 'bg-primary-400'
       },
       success: {
-        toast: 'border-emerald-100 bg-emerald-50 text-emerald-500'
+        toast: 'border-emerald-100 bg-emerald-50 text-emerald-500',
+        progress: 'bg-emerald-400'
       },
       info: {
-        toast: 'border-cyan-100 bg-cyan-50 text-cyan-500'
+        toast: 'border-cyan-100 bg-cyan-50 text-cyan-500',
+        progress: 'bg-cyan-400'
       },
       error: {
-        toast: 'border-red-200 bg-pink-100 text-red-500'
+        toast: 'border-red-200 bg-pink-100 text-red-500',
+        progress: 'bg-red-400',
       },
       warn: {
-        toast: 'border-amber-100 bg-amber-50 text-amber-500'
+        toast: 'border-amber-100 bg-amber-50 text-amber-500',
+        progress: 'bg-amber-400'
       }
     },
     size: {
@@ -105,16 +113,29 @@ type Props = {
   size?: ToastProps['size']
   variant?: ToastProps['variant']
 
-  title?: string
-  description?: string
+  id?: Toast['id']
+  title?: Toast['title']
+  description?: Toast['description']
+  timeout?: Toast['timeout']
+  progress?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'default'
+  variant: 'default',
+  progress: true
 })
 
-const { toast, icon, title, description } = toastTV({
+const { toast, icon, title, description, progress } = toastTV({
   size: props.size,
   variant: props.variant
 })
+
+const progressRef = ref(null)
+onMounted(() => {
+  if (props.timeout && props.progress) {
+    useAnime({ targets: progressRef.value, duration: props.timeout, width: ['100%', 0], easing: 'linear' })
+  }
+})
+
+const { close } = useToast()
 </script>

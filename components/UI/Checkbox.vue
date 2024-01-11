@@ -47,9 +47,9 @@ const checkboxTV = tv({
     variant: {
       default: {
         checkbox:
-          'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 checked:focus:border-primary-700 checked:focus:bg-primary-700 disabled:border-primary-200 disabled:bg-primary-100',
+          'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 disabled:border-primary-200 disabled:bg-primary-100',
         label: 'text-black peer-disabled:text-slate-500',
-        small: 'text-primary-500 peer-invalid:text-red-500',
+        small: 'text-slate-500 peer-invalid:text-red-500',
         svg: '-rotate-90 fill-white stroke-white opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
       }
     },

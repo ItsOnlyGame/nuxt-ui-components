@@ -12,7 +12,7 @@
       {{ props.helper }}
     </label>
     <small :class="small()">
-      <span>Toggle can also have helper text</span>
+      <span>{{ $props.helper }}</span>
     </small>
   </div>
 </template>

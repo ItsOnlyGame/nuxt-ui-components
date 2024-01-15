@@ -4,8 +4,8 @@
       <Heading>Nuxt UI Components</Heading>
     </NuxtLink>
     <div>
-      <NuxtLink v-for="route in routes" :to="route.url" :key="route.url">
-        <Button variant="ghost"> {{ route.name }} </Button>
+      <NuxtLink v-for="route in routes" :to="route.url">
+        <Button :key="route.name" variant="ghost"> {{ route.name }} </Button>
       </NuxtLink>
     </div>
   </header>
@@ -24,6 +24,7 @@ const routes = [
   { name: 'Accordion', url: '/accordion' },
   { name: 'Dropdown', url: '/dropdown' },
   { name: 'Toggles', url: '/toggle' },
-  { name: 'Toasts', url: '/toasts' }
+  { name: 'Toasts', url: '/toasts' },
+  { name: 'Pagination', url: '/pagination' },
 ]
 </script>

@@ -1,7 +1,7 @@
 <template>
   <nav role="navigation">
     <ul :class="base()">
-      <li v-if="showQuickLinks && showFirstButton">
+      <li v-if="showFirstButton">
         <button @click="() => emitClick(1)" :class="button()">
           <span class="sr-only">First</span>
           <svg
@@ -60,7 +60,7 @@
           </svg>
         </button>
       </li>
-      <li v-if="showQuickLinks && showLastButton">
+      <li v-if="showLastButton">
         <button @click="() => emitClick(props.count)" :class="button()">
           <span class="sr-only">Last</span>
           <svg

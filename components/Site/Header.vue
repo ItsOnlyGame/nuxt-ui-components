@@ -13,18 +13,18 @@
 
 <script setup lang="ts">
 const routes = [
-  { name: 'Buttons', url: '/buttons' },
-  { name: 'Headings', url: '/headings' },
-  { name: 'Input', url: '/input' },
-  { name: 'Checkbox', url: '/checkbox' },
-  { name: 'Textarea', url: '/textarea' },
-  { name: 'Modals', url: '/modals' },
-  { name: 'Slideover', url: '/slideover' },
-  { name: 'Select', url: '/select' },
-  { name: 'Accordion', url: '/accordion' },
-  { name: 'Dropdown', url: '/dropdown' },
-  { name: 'Toggles', url: '/toggle' },
-  { name: 'Toasts', url: '/toasts' },
-  { name: 'Pagination', url: '/pagination' },
+  { name: 'Buttons', url: '/UI/buttons' },
+  { name: 'Headings', url: '/UI/headings' },
+  { name: 'Input', url: '/UI/input' },
+  { name: 'Checkbox', url: '/UI/checkbox' },
+  { name: 'Textarea', url: '/UI/textarea' },
+  { name: 'Modals', url: '/UI/modals' },
+  { name: 'Slideover', url: '/UI/slideover' },
+  { name: 'Select', url: '/UI/select' },
+  { name: 'Accordion', url: '/UI/accordion' },
+  { name: 'Dropdown', url: '/UI/dropdown' },
+  { name: 'Toggles', url: '/UI/toggle' },
+  { name: 'Toasts', url: '/UI/toasts' },
+  { name: 'Pagination', url: '/UI/pagination' },
 ]
 </script>

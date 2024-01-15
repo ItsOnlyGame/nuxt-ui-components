@@ -23,6 +23,12 @@
         <Pagination :count="5" :page="currentPage" @change="changePage" size="md" variant="default" />
         <Pagination :count="5" :page="currentPage" @change="changePage" size="lg" variant="default" />
       </div>
+
+      <div class="flex flex-col gap-2">
+        <Pagination :count="5" :page="currentPage" @change="changePage" size="sm" variant="default" show-first-button="true" show-last-button="true" />
+        <Pagination :count="5" :page="currentPage" @change="changePage" size="md" variant="default" show-first-button="true" show-last-button="true" />
+        <Pagination :count="5" :page="currentPage" @change="changePage" size="lg" variant="default" show-first-button="true" show-last-button="true" />
+      </div>
     </div>
   </div>
 </template>

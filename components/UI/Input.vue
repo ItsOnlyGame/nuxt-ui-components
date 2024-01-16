@@ -76,7 +76,8 @@ type Props = {
   modelValue?: string
   disabled?: boolean
   pattern?: string
-  type?: 'text' | 'password'
+  type?: 'text' | 'password',
+  id?: string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -89,7 +90,12 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'text'
 })
 
-const inputId = crypto.randomUUID()
+const inputId = ref(props.id || '')
+onMounted(() => {
+  if (!props.id) {
+    inputId.value = crypto.randomUUID()
+  }
+})
 
 const { base, input, small, label } = inputTV({
   size: props.size,

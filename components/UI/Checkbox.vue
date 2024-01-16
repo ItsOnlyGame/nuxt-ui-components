@@ -92,7 +92,8 @@ type Props = {
 
   // Checkbox props
   modelValue?: boolean
-  disabled?: boolean
+  disabled?: boolean,
+  id?: string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -102,7 +103,13 @@ const emitUpdate = (event: Event) => {
 }
 
 const props = defineProps<Props>()
-const checkboxId = crypto.randomUUID()
+
+const checkboxId = ref(props.id || '')
+onMounted(() => {
+  if (!props.id) {
+    checkboxId.value = crypto.randomUUID()
+  }
+})
 
 const { base, checkbox, small, label, svg } = checkboxTV({
   size: props.size,

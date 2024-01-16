@@ -83,7 +83,6 @@ type ModalProps = VariantProps<typeof modalTV>
 type Props = {
   size?: ModalProps['size']
   variant?: ModalProps['variant']
-  class?: string
 
   // Label text props
   label?: string

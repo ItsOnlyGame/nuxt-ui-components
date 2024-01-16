@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :class="base()">
     <Transition>
       <div v-if="open" :class="`overlay ${overlay()}`" @click.self="$emit('close')">
         <div :class="`slideover ${slideover()}`">
@@ -37,7 +37,8 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const slideoverTV = tv({
   slots: {
-    overlay: 'absolute left-0 top-0 z-20 h-full w-full overflow-x-hidden',
+    base: 'absolute left-0 top-0 h-full w-full pointer-events-none',
+    overlay: 'absolute left-0 top-0 z-20 h-full w-full overflow-x-hidden pointer-events-auto',
     header: 'mx-6 my-2 flex flex-row items-center justify-between',
     slideover: 'fixed right-0 top-0 z-50 h-screen overflow-auto',
     closeButton:
@@ -77,7 +78,6 @@ type Props = {
   // Customization props
   size?: SlideoverProps['size']
   variant?: SlideoverProps['variant']
-  class?: string
 
   // Slideover props
   open: boolean
@@ -87,7 +87,7 @@ defineEmits(['close'])
 
 const props = defineProps<Props>()
 
-const { overlay, header, slideover, closeButton } = slideoverTV({
+const { base, overlay, header, slideover, closeButton } = slideoverTV({
   size: props.size,
   variant: props.variant
 })

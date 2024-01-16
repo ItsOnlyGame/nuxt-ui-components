@@ -26,5 +26,6 @@ const routes = [
   { name: 'Toggles', url: '/UI/toggle' },
   { name: 'Toasts', url: '/UI/toasts' },
   { name: 'Pagination', url: '/UI/pagination' },
+  { name: 'Tabs', url: '/UI/tabs' },
 ]
 </script>

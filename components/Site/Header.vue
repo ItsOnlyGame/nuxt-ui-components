@@ -27,5 +27,6 @@ const routes = [
   { name: 'Toasts', url: '/UI/toasts' },
   { name: 'Pagination', url: '/UI/pagination' },
   { name: 'Tabs', url: '/UI/tabs' },
+  { name: 'Alerts', url: '/UI/alerts' },
 ]
 </script>

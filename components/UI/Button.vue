@@ -1,5 +1,6 @@
 <template>
   <button
+    type="button"
     :class="buttonTV({ size: props.size, variant: props.variant, class: props.class })"
     @click="(e) => $emit('click', e)"
   >

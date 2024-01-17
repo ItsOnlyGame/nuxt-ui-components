@@ -28,5 +28,6 @@ const routes = [
   { name: 'Pagination', url: '/UI/pagination' },
   { name: 'Tabs', url: '/UI/tabs' },
   { name: 'Alerts', url: '/UI/alerts' },
+  { name: 'Spinner', url: '/UI/spinner' },
 ]
 </script>

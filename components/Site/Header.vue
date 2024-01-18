@@ -30,5 +30,6 @@ const routes = [
   { name: 'Alerts', url: '/UI/alerts' },
   { name: 'Spinner', url: '/UI/spinner' },
   { name: 'Date Picker', url: '/UI/date-picker' },
+  { name: 'Time Picker', url: '/UI/time-picker' },
 ]
 </script>

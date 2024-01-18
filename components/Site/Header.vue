@@ -29,5 +29,6 @@ const routes = [
   { name: 'Tabs', url: '/UI/tabs' },
   { name: 'Alerts', url: '/UI/alerts' },
   { name: 'Spinner', url: '/UI/spinner' },
+  { name: 'Date Picker', url: '/UI/date-picker' },
 ]
 </script>

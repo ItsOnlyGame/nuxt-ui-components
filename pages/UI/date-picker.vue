@@ -15,8 +15,8 @@
 
 <script setup>
 definePageMeta({
-  title: 'Component: Input',
-  description: 'Nuxt UI input component'
+  title: 'Component: DatePicker',
+  description: 'Nuxt UI date picker component'
 })
 
 const date = ref('2024-01-18')

@@ -16,12 +16,12 @@ const buttonTV = tv({
   variants: {
     variant: {
       solid: 'bg-primary-400 hover:bg-primary-500 active:bg-primary-400',
-      hidden: 'bg-transparent hover:bg-transparent pointer-events-none'
+      hidden: 'pointer-events-none bg-transparent hover:bg-transparent'
     },
     size: {
-      sm: 'text-md h-7 w-7 p-1',
+      sm: 'h-7 w-7 p-1 text-sm',
       md: 'text-md h-8 w-8 p-1.5',
-      lg: 'text-md h-10 w-10 p-2',
+      lg: 'h-10 w-10 p-2 text-lg'
     }
   },
   defaultVariants: {

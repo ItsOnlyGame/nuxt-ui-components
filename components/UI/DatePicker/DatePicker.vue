@@ -36,6 +36,12 @@
         {{ day.value }}
       </DatePickerButton>
     </div>
+
+    <div v-if="$props.allowInputClear" :class="footer()">
+      <DatePickerButton @click="clearInput" :size="$props.size">
+        <ClearIcon :class="icon()" />
+      </DatePickerButton>
+    </div>
   </div>
 </template>
 
@@ -44,52 +50,40 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const datePickerTV = tv({
   slots: {
-    base: 'h-max select-none rounded',
-    header: 'my-2 flex flex-row items-center justify-between',
+    base: 'inline-flex flex-col h-max select-none rounded gap-1',
+    header: 'flex flex-row items-center justify-between',
     dateTitle: 'flex flex-col',
     buttonsContainer: 'flex flex-row gap-1',
-    button: '',
     icon: '',
     calendar: 'grid grid-cols-7 grid-rows-6 items-center justify-center',
-    weekdays: 'text-center'
+    weekdays: 'text-center',
+    footer: ''
   },
   variants: {
     variant: {
       default: {
         base: 'bg-primary-200',
-        header: '',
         dateTitle: 'text-primary-950',
-        buttonsContainer: '',
         icon: 'text-primary-900',
-        calendar: '',
         weekdays: 'text-primary-950'
       }
     },
     size: {
       sm: {
-        base: 'px-4 py-2',
-        header: '',
+        base: 'w-[252px] px-4 py-3',
         dateTitle: 'text-lg font-bold',
-        buttonsContainer: '',
-        button: '',
         calendar: 'gap-1',
         weekdays: 'font-semibold'
       },
       md: {
-        base: 'px-6 py-4',
-        header: '',
+        base: 'w-[296px] px-6 py-3',
         dateTitle: 'text-lg font-bold',
-        buttonsContainer: '',
-        button: '',
         calendar: 'gap-1',
         weekdays: 'font-semibold'
       },
       lg: {
-        base: 'px-6 py-4',
-        header: '',
+        base: 'w-[352px] px-6 py-3',
         dateTitle: 'text-xl font-bold',
-        buttonsContainer: '',
-        button: '',
         calendar: 'gap-1',
         weekdays: 'font-semibold'
       }
@@ -107,17 +101,19 @@ type Props = {
   size?: CheckboxProps['size']
   variant?: CheckboxProps['variant']
 
+  allowInputClear?: boolean
   modelValue?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   size: 'md',
-  variant: 'default'
+  variant: 'default',
+  allowInputClear: false
 })
 
 const emit = defineEmits(['update:modelValue'])
 
-const { base, header, dateTitle, buttonsContainer, button, icon, calendar, weekdays } = datePickerTV({
+const { base, header, dateTitle, buttonsContainer, icon, calendar, weekdays, footer } = datePickerTV({
   size: props.size,
   variant: props.variant
 })
@@ -155,6 +151,11 @@ const nextCalendarMonth = () => {
     return
   }
   calendarViewDate.value.month++
+}
+
+const clearInput = () => {
+  date.value = ''
+  emit('update:modelValue', date.value)
 }
 
 const setDate = (d: number | null) => {

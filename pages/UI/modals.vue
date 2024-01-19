@@ -9,7 +9,7 @@
       </div>
     </div>
 
-    <Modal label="Lorem Ipsum (sm)" :show="modals[0]" @exit="() => (modals[0] = false)" size="sm">
+    <Modal label="Lorem Ipsum (sm)" :show="modals[0]" @close="() => (modals[0] = false)" size="sm">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu bibendum nisi. Nullam aliquam lacinia ante a
         pretium. Sed lobortis bibendum nulla, ut fringilla nibh pulvinar in. Aliquam accumsan nisi ut nunc tincidunt
@@ -17,7 +17,7 @@
       </p>
     </Modal>
 
-    <Modal label="Lorem Ipsum (md)" :show="modals[1]" @exit="() => (modals[1] = false)" size="md">
+    <Modal label="Lorem Ipsum (md)" :show="modals[1]" @close="() => (modals[1] = false)" size="md">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu bibendum nisi. Nullam aliquam lacinia ante a
         pretium. Sed lobortis bibendum nulla, ut fringilla nibh pulvinar in. Aliquam accumsan nisi ut nunc tincidunt
@@ -25,7 +25,7 @@
       </p>
     </Modal>
 
-    <Modal label="Lorem Ipsum (lg)" :show="modals[2]" @exit="() => (modals[2] = false)" size="lg">
+    <Modal label="Lorem Ipsum (lg)" :show="modals[2]" @close="() => (modals[2] = false)" size="lg">
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc eu bibendum nisi. Nullam aliquam lacinia ante a
         pretium. Sed lobortis bibendum nulla, ut fringilla nibh pulvinar in. Aliquam accumsan nisi ut nunc tincidunt

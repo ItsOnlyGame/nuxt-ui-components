@@ -84,7 +84,7 @@ type Props = {
   label?: string
 
   // Select props
-  modelValue?: string
+  modelValue?: string | number
   disabled?: boolean
   required?: boolean
   id?: string
@@ -93,6 +93,12 @@ type Props = {
 const emit = defineEmits(['update:modelValue'])
 const emitUpdate = (event: Event) => {
   const selectElement = event.target as HTMLSelectElement
+
+  if (typeof props.modelValue == 'number') {
+    emit('update:modelValue', Number(selectElement.value))
+    return
+  }
+
   emit('update:modelValue', selectElement.value)
 }
 

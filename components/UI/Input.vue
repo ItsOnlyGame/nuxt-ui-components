@@ -76,13 +76,23 @@ type Props = {
   modelValue?: string
   disabled?: boolean
   pattern?: string
-  type?: 'text' | 'password',
+  type?: 'text' | 'password' | 'number'
   id?: string
+
+  // Number input
+  min?: number | string
+  max?: number | string
 }
 
 const emit = defineEmits(['update:modelValue'])
 const emitUpdate = (event: Event) => {
   const inputElement = event.target as HTMLInputElement
+
+  if (props.type == 'number') {
+    emit('update:modelValue', Number(inputElement.value))
+    return
+  }
+
   emit('update:modelValue', inputElement.value)
 }
 

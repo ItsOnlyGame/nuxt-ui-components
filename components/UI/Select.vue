@@ -87,6 +87,7 @@ type Props = {
   modelValue?: string
   disabled?: boolean
   required?: boolean
+  id?: string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -97,7 +98,12 @@ const emitUpdate = (event: Event) => {
 
 const props = defineProps<Props>()
 
-const selectId = crypto.randomUUID()
+const selectId = ref(props.id || '')
+onMounted(() => {
+  if (!props.id) {
+    selectId.value = crypto.randomUUID()
+  }
+})
 
 const { base, select, svg, label } = selectTV({
   size: props.size,

@@ -5,7 +5,7 @@
       <!-- Modal header -->
       <header id="header-3a" :class="header()">
         <h3 :class="headerText()">{{ props.label }}</h3>
-        <button :class="exitButton()" @click="$emit('exit')">
+        <button :class="exitButton()" @click="$emit('close')">
           <span class="relative only:-mx-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -91,7 +91,7 @@ type Props = {
   show: boolean
 }
 
-defineEmits(['exit'])
+defineEmits(['close'])
 const props = defineProps<Props>()
 
 const { base, modal, headerText, header, exitButton, content } = modalTV({

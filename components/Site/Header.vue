@@ -3,15 +3,42 @@
     <NuxtLink to="/">
       <Heading>Nuxt UI Components</Heading>
     </NuxtLink>
+
     <div>
-      <NuxtLink v-for="route in routes" :to="route.url">
-        <Button :key="route.name" variant="ghost"> {{ route.name }} </Button>
-      </NuxtLink>
+      <Button class="p-1.5" size="sm" variant="ghost" @click="() => (isMenuOpen = true)">
+        <MenuIcon />
+      </Button>
     </div>
+
+    <Slideover @close="() => setMenuOpen(!isMenuOpen)" :open="isMenuOpen">
+      <template #header>
+        <Heading size="sm" color="white">Nuxt Components</Heading>
+      </template>
+
+      <div class="flex flex-row flex-wrap px-2 gap-3 items-center justify-center">
+        <NuxtLink v-for="route in routes" :to="route.url">
+        <Button :key="route.name"> {{ route.name }} </Button>
+      </NuxtLink>
+      </div>
+    </Slideover>
   </header>
 </template>
 
 <script setup lang="ts">
+const isMenuOpen = ref(false)
+
+
+const setMenuOpen = (value: boolean) => {
+  isMenuOpen.value = value
+  window.scrollTo(0, 0)
+
+  if (value) {
+    document.body.style.overflow = 'hidden'
+  } else {
+    document.body.style.overflow = 'auto'
+  }
+}
+
 const routes = [
   { name: 'Buttons', url: '/UI/buttons' },
   { name: 'Headings', url: '/UI/headings' },
@@ -30,6 +57,6 @@ const routes = [
   { name: 'Alerts', url: '/UI/alerts' },
   { name: 'Spinner', url: '/UI/spinner' },
   { name: 'Date Picker', url: '/UI/date-picker' },
-  { name: 'Time Picker', url: '/UI/time-picker' },
+  { name: 'Time Picker', url: '/UI/time-picker' }
 ]
 </script>

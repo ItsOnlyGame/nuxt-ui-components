@@ -6,7 +6,7 @@
           <div :class="header()">
             <slot name="header" />
 
-            <button :class="closeButton()" @click="$emit('close')">
+            <button type="button" :class="closeButton()" @click="$emit('close')">
               <span class="relative only:-mx-5">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -37,8 +37,8 @@ import { tv, type VariantProps } from 'tailwind-variants'
 
 const slideoverTV = tv({
   slots: {
-    base: 'absolute left-0 top-0 h-full w-full pointer-events-none',
-    overlay: 'absolute left-0 top-0 z-20 h-full w-full overflow-x-hidden pointer-events-auto',
+    base: 'pointer-events-none absolute left-0 top-0 h-full w-full',
+    overlay: 'pointer-events-auto absolute left-0 top-0 z-20 h-full w-full overflow-x-hidden',
     header: 'mx-6 my-2 flex flex-row items-center justify-between',
     slideover: 'fixed right-0 top-0 z-50 h-screen overflow-auto',
     closeButton:

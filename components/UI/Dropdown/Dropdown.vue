@@ -1,6 +1,6 @@
 <template>
   <div :class="base()" v-click-outside="() => (isOpen = false)">
-    <button :class="button()" @click="() => (isOpen = !isOpen)">
+    <button type="button" :class="button()" @click="() => (isOpen = !isOpen)">
       <span>{{ props.label }}</span>
       <span :class="iconContainer()">
         <svg

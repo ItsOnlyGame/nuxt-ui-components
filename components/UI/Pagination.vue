@@ -2,7 +2,7 @@
   <nav role="navigation">
     <ul :class="base()">
       <li v-if="showFirstButton">
-        <button @click="() => emitClick(1)" :class="button()">
+        <button type="button" @click="() => emitClick(1)" :class="button()">
           <span class="sr-only">First</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@
         </button>
       </li>
       <li v-if="showQuickLinks && !hidePrevButton">
-        <button @click="() => emitClick(previousPage)" :class="button()">
+        <button type="button" @click="() => emitClick(previousPage)" :class="button()">
           <span class="sr-only">Previous</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -36,6 +36,7 @@
 
       <li v-for="index in relevantPages">
         <button
+          type="button"
           :key="index"
           @click="() => emitClick(index)"
           :class="button({ class: $props.page == index ? selectedButton() : '' })"
@@ -45,7 +46,7 @@
       </li>
 
       <li v-if="showQuickLinks && !hideNextButton">
-        <button @click="() => emitClick(nextPage)" :class="button()">
+        <button type="button" @click="() => emitClick(nextPage)" :class="button()">
           <span class="sr-only">Next</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +62,7 @@
         </button>
       </li>
       <li v-if="showLastButton">
-        <button @click="() => emitClick(props.count)" :class="button()">
+        <button type="button" @click="() => emitClick(props.count)" :class="button()">
           <span class="sr-only">Last</span>
           <svg
             xmlns="http://www.w3.org/2000/svg"

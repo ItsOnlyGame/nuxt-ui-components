@@ -1,11 +1,9 @@
 <template>
   <div v-if="show" :class="base()" tabindex="-1" role="dialog">
-    <!-- Modal -->
     <div :class="modal()" id="modal" role="document">
-      <!-- Modal header -->
       <header id="header-3a" :class="header()">
         <h3 :class="headerText()">{{ props.label }}</h3>
-        <button :class="exitButton()" @click="$emit('close')">
+        <button type="button" :class="exitButton()" @click="$emit('close')">
           <span class="relative only:-mx-5">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -21,7 +19,6 @@
           </span>
         </button>
       </header>
-      <!-- Modal body -->
       <div id="content-3a" :class="content()">
         <slot />
       </div>

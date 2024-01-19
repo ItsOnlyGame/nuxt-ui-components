@@ -1,5 +1,6 @@
 <template>
   <button
+    type="button"
     :class="dropdownListItemTV({ size: props.size, color: props.color, class: props.class })"
     @click="(e) => $emit('click', e)"
   >

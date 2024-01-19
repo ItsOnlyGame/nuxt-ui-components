@@ -4,7 +4,7 @@
       :class="checkbox()"
       type="checkbox"
       :id="checkboxId"
-      :value="modelValue"
+      :checked="modelValue"
       @input="emitUpdate"
       :disabled="disabled"
     />

@@ -25,8 +25,8 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const isMenuOpen = ref(false)
-
 
 const setMenuOpen = (value: boolean) => {
   isMenuOpen.value = value
@@ -38,6 +38,12 @@ const setMenuOpen = (value: boolean) => {
     document.body.style.overflow = 'auto'
   }
 }
+
+watch(
+  () => route.fullPath,
+  () => setMenuOpen(false),
+  { deep: true, immediate: false }
+)
 
 const routes = [
   { name: 'Buttons', url: '/UI/buttons' },

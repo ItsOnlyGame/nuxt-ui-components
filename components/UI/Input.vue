@@ -3,10 +3,10 @@
     <input
       :id="inputId"
       :type="$props.type"
-      :placeholder="props.label"
-      :disabled="props.disabled"
+      :placeholder="$props.label"
+      :disabled="$props.disabled"
       :class="input()"
-      :value="modelValue"
+      :value="$props.value || $props.modelValue"
       @input="emitUpdate"
       :pattern="pattern"
     />
@@ -73,7 +73,8 @@ type Props = {
   label?: string
 
   // Text input props
-  modelValue?: string
+  value?: string | number | null
+  modelValue?: string | number | null
   disabled?: boolean
   pattern?: string
   type?: 'text' | 'password' | 'number'

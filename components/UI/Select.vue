@@ -34,7 +34,7 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 const selectTV = tv({
   slots: {
-    base: 'relative my-6 md:w-60',
+    base: 'relative md:w-60',
     select: 'peer relative w-full appearance-none outline-none transition-all disabled:cursor-not-allowed',
     label: 'absolute z-[1] transition-all',
     svg: 'pointer-events-none absolute transition-all peer-disabled:cursor-not-allowed'

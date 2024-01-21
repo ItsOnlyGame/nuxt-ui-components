@@ -1,19 +1,18 @@
 <template>
-  <div :class="base()">
+  <div :class="inputStyle.base()">
     <input
       :id="$props.id"
       :type="$props.type"
       :placeholder="$props.label"
       :disabled="$props.disabled"
-      :class="input()"
+      :class="inputStyle.input()"
       :value="$props.value || $props.modelValue"
       @input="emitUpdate"
-      :pattern="pattern"
     />
-    <label :for="$props.id" :class="label()">
+    <label :for="$props.id" :class="inputStyle.label()">
       {{ $props.label }}
     </label>
-    <small :class="small()">
+    <small v-if="$props.helper" :class="inputStyle.small()">
       <span>{{ $props.helper }}</span>
     </small>
   </div>
@@ -24,18 +23,23 @@ import { tv, type VariantProps } from 'tailwind-variants'
 const inputTV = tv({
   slots: {
     base: 'relative flex flex-col',
-    input: 'peer relative w-full outline-none transition-all disabled:cursor-not-allowed',
+    input: 'peer relative w-full placeholder-transparent outline-none transition-all disabled:cursor-not-allowed',
     label: 'absolute z-[1] transition-all',
     small: 'flex w-full justify-between transition-all'
   },
   variants: {
     variant: {
       default: {
-        label:
-          'bg-body-light text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400',
+        label: 'bg-body-light text-primary-500 peer-focus:text-primary-600 peer-disabled:text-stone-400',
         input:
-          'rounded border-2 border-primary-500 text-primary-950 placeholder-transparent invalid:border-red-500 focus:border-primary-700 disabled:border-stone-400 disabled:bg-transparent',
-        small: 'text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400'
+          'rounded border-2 border-primary-500 text-primary-950 focus:border-primary-600 disabled:border-stone-400 disabled:bg-transparent',
+        small: 'text-primary-500 peer-focus:text-primary-600 peer-disabled:text-stone-400'
+      }
+    },
+    invalid: {
+      true: {
+        label: 'text-red-500 peer-focus:text-red-600',
+        input: ' border-red-500 text-primary-950 focus:border-red-600'
       }
     },
     size: {
@@ -82,6 +86,7 @@ type Props = {
   value?: string | number | null
   modelValue?: string | number | null
   disabled?: boolean
+  invalid?: boolean
   pattern?: string
   type?: 'text' | 'password' | 'number'
 
@@ -106,8 +111,11 @@ const props = withDefaults(defineProps<Props>(), {
   type: 'text'
 })
 
-const { base, input, small, label } = inputTV({
-  size: props.size,
-  variant: props.variant
+const inputStyle = computed(() => {
+  return inputTV({
+    size: props.size,
+    variant: props.variant,
+    invalid: props.invalid
+  })
 })
 </script>

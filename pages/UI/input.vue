@@ -6,12 +6,14 @@
         <Input label="Text" helper="Input can also have helper text" size="sm" v-model="text" variant="default" />
         <Input label="Text" helper="Input can also have helper text" size="md" v-model="text" variant="default" />
         <Input label="Text" helper="Input can also have helper text" size="lg" v-model="text" variant="default" />
+        <Input label="Text" helper="Input can also have helper text" size="xl" v-model="text" variant="default" />
       </div>
 
       <div class="flex flex-col gap-4">
         <Input label="Text" helper="Input can also have helper text" size="sm" variant="default" v-model="text" disabled />
         <Input label="Text" helper="Input can also have helper text" size="md" variant="default" v-model="text" disabled />
         <Input label="Text" helper="Input can also have helper text" size="lg" variant="default" v-model="text" disabled />
+        <Input label="Text" helper="Input can also have helper text" size="xl" variant="default" v-model="text" disabled />
       </div>
     </div>
 
@@ -22,6 +24,7 @@
           <Input label="Text" helper="Input can also have helper text" size="sm" variant="default" v-model="text" pattern="" />
           <Input label="Text" helper="Input can also have helper text" size="md" variant="default" v-model="text" pattern="" />
           <Input label="Text" helper="Input can also have helper text" size="lg" variant="default" v-model="text" pattern="" />
+          <Input label="Text" helper="Input can also have helper text" size="xl" variant="default" v-model="text" pattern="" />
         </form>
       </div>
     </div>

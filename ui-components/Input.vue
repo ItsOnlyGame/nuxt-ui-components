@@ -41,15 +41,20 @@ const inputTV = tv({
     size: {
       sm: {
         label: '-top-2 left-3.5 px-1.5 text-xs',
-        input: 'h-10 px-4',
+        input: 'h-9 px-4',
         small: 'px-2 py-1 text-xs'
       },
       md: {
+        label: '-top-2 left-3.5 px-1.5 text-xs',
+        input: 'h-10 px-4',
+        small: 'px-2 py-1 text-xs'
+      },
+      lg: {
         label: '-top-2 left-3 px-1.5 text-sm',
         input: 'h-12 px-4',
         small: 'px-2 py-1 text-xs'
       },
-      lg: {
+      xl: {
         label: 'text-md -top-3 left-3.5 px-2',
         input: 'h-14 px-5 text-lg',
         small: 'px-2 py-1 text-xs'

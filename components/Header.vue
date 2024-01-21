@@ -4,7 +4,11 @@
       <Heading>Nuxt UI Components</Heading>
     </NuxtLink>
 
-    <div>
+    <div class="flex flex-row items-center justify-center gap-2">
+      <NuxtLink to="/form-example">
+        <Button variant="ghost"> Form Example </Button>
+      </NuxtLink>
+
       <Button class="p-1.5" size="sm" variant="ghost" @click="() => (isMenuOpen = true)">
         <MenuIcon />
       </Button>
@@ -15,10 +19,10 @@
         <Heading size="sm" color="white">Nuxt Components</Heading>
       </template>
 
-      <div class="flex flex-row flex-wrap px-2 gap-3 items-center justify-center">
+      <div class="flex flex-row flex-wrap items-center justify-center gap-3 px-2">
         <NuxtLink v-for="route in routes" :to="route.url">
-        <Button :key="route.name"> {{ route.name }} </Button>
-      </NuxtLink>
+          <Button :key="route.name"> {{ route.name }} </Button>
+        </NuxtLink>
       </div>
     </Slideover>
   </header>

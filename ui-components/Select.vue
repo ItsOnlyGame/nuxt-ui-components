@@ -1,8 +1,7 @@
 <template>
   <div :class="base()">
     <select
-      :id="selectId"
-      :name="selectId"
+      :id="$props.id"
       :required="props.required"
       :class="select()"
       :value="props.modelValue"
@@ -11,7 +10,7 @@
     >
       <slot />
     </select>
-    <label :for="selectId" :class="label()">
+    <label :for="$props.id" :class="label()">
       {{ props.label }}
     </label>
     <Icon name="solar:alt-arrow-down-bold" :class="svg()" />
@@ -44,11 +43,16 @@ const selectTV = tv({
         svg: 'right-2 top-3 h-5 w-5'
       },
       md: {
+        label: '-top-2 left-3.5 px-1.5 text-xs',
+        select: 'h-10 px-4',
+        svg: 'right-2 top-3 h-5 w-5'
+      },
+      lg: {
         label: '-top-2 left-3 px-1.5 text-sm',
         select: 'h-12 px-4',
         svg: 'right-2 top-3.5 h-6 w-6'
       },
-      lg: {
+      xl: {
         label: 'text-md -top-3 left-3.5 px-2',
         select: 'h-14 px-5 text-lg',
         svg: 'right-2 top-4 h-7 w-7'
@@ -72,10 +76,10 @@ type Props = {
   label?: string
 
   // Select props
+  id: string
   modelValue?: string | number
   disabled?: boolean
   required?: boolean
-  id?: string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -91,13 +95,6 @@ const emitUpdate = (event: Event) => {
 }
 
 const props = defineProps<Props>()
-
-const selectId = ref(props.id || '')
-onMounted(() => {
-  if (!props.id) {
-    selectId.value = crypto.randomUUID()
-  }
-})
 
 const { base, select, svg, label } = selectTV({
   size: props.size,

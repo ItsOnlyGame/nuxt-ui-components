@@ -16,6 +16,10 @@ export default defineNuxtConfig({
     {
       path: '~/components',
       pathPrefix: false
+    },
+    {
+      path: '~/ui-components',
+      pathPrefix: false
     }
   ],
   anime: {

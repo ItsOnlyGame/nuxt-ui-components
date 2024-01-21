@@ -5,9 +5,9 @@
 
     <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
       <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
-        <DatePicker v-model="date" size="sm" />
-        <DatePicker v-model="date" size="md" />
-        <DatePicker v-model="date" size="lg" />
+        <DatePicker id="date-picker-01" label="Date" v-model="date" size="sm" />
+        <DatePicker id="date-picker-02" label="Date" v-model="date" size="md" />
+        <DatePicker id="date-picker-03" label="Date" v-model="date" size="lg" />
       </div>
     </div>
   </div>

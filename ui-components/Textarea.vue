@@ -8,15 +8,15 @@
       :value="modelValue"
       @input="emitUpdate"
       :class="textarea()"
-      :maxlength="limit"
+      :maxlength="$props.limit"
       :disabled="disabled"
     />
     <label :for="textareaId" :class="label()">
       {{ props.label }}
     </label>
-    <small :class="small()">
-      <span> {{ props.helper }} </span>
-      <span v-if="limit">{{ charCount }}/{{ limit }}</span>
+    <small v-if="$props.helper || $props.limit" :class="small()">
+      <span v-if="$props.helper"> {{ props.helper }} </span>
+      <span v-if="$props.limit">{{ charCount }}/{{ $props.limit }}</span>
     </small>
   </div>
 </template>

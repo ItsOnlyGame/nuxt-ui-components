@@ -11,8 +11,8 @@
     <label :class="label()" :for="$props.id">
       {{ props.label }}
     </label>
-    <small :class="small()">
-      <span>{{ props.helper }}</span>
+    <small v-if="$props.helper" :class="small()">
+      <span>{{ $props.helper }}</span>
     </small>
     <svg
       :class="svg()"

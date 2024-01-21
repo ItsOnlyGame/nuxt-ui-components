@@ -20,17 +20,6 @@
         <Checkbox label="Text" helper="Checkbox can also have helper text" size="lg" v-model="checkboxes[5]" disabled />
       </div>
     </div>
-
-    <Heading size="sm">Invalid Checkbox</Heading>
-    <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
-      <div class="flex flex-col gap-4">
-        <form class="flex flex-col gap-4">
-          <Checkbox label="Text" helper="Checkbox can also have helper text" size="sm" v-model="checkboxes[6]" pattern="" />
-          <Checkbox label="Text" helper="Checkbox can also have helper text" size="md" v-model="checkboxes[7]" pattern="" />
-          <Checkbox label="Text" helper="Checkbox can also have helper text" size="lg" v-model="checkboxes[8]" pattern="" />
-        </form>
-      </div>
-    </div>
   </div>
 </template>
 

@@ -1,12 +1,8 @@
 <template>
-  <button
-    type="button"
-    :class="buttonTV({ size: props.size, variant: props.variant, class: props.class })"
-    @click="(e) => $emit('click', e)"
-  >
-    <LeftArrowIcon v-if="$props.quickIcon == 'left-arrow'" />
-    <CircleFilledIcon v-if="$props.quickIcon == 'center'" />
-    <RightArrowIcon v-if="$props.quickIcon == 'right-arrow'" />
+  <button type="button" :class="button({ class: $props.class })" @click="(e) => $emit('click', e)">
+    <Icon name="ep:arrow-left-bold" v-if="$props.quickIcon == 'left-arrow'" :class="icon()" />
+    <Icon name="ph:circle-fill" v-if="$props.quickIcon == 'center'" :class="icon()" />
+    <Icon name="ep:arrow-right-bold" v-if="$props.quickIcon == 'right-arrow'" :class="icon()" />
     <slot />
   </button>
 </template>
@@ -15,16 +11,30 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const buttonTV = tv({
-  base: 'inline-flex flex-row items-center justify-center whitespace-nowrap rounded-lg text-sm text-primary-900 transition-colors',
+  slots: {
+    button:
+      'inline-flex flex-row items-center justify-center whitespace-nowrap rounded-lg text-sm text-primary-900 transition-colors',
+    icon: 'h-full w-full'
+  },
   variants: {
     variant: {
-      solid: 'bg-transparent hover:bg-primary-600 active:bg-primary-700',
-      hidden: 'pointer-events-none bg-transparent hover:bg-transparent'
+      solid: {
+        button: 'bg-transparent hover:bg-primary-600 active:bg-primary-700'
+      },
+      hidden: {
+        button: 'pointer-events-none bg-transparent hover:bg-transparent'
+      }
     },
     size: {
-      sm: '',
-      md: 'h-7 w-7 p-1',
-      lg: ''
+      sm: {
+        button: ''
+      },
+      md: {
+        button: 'h-7 w-7 p-1'
+      },
+      lg: {
+        button: ''
+      }
     }
   },
   defaultVariants: {
@@ -45,4 +55,6 @@ type Props = {
 
 defineEmits(['click'])
 const props = defineProps<Props>()
+
+const { button, icon } = buttonTV({ size: props.size, variant: props.variant })
 </script>

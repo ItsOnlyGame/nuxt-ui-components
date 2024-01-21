@@ -2,7 +2,7 @@
   <div :class="base()" v-click-outside="() => (isOpen = false)">
     <button :class="button()" @click="() => (isOpen = !isOpen)">
       <span>{{ currentDateString }}</span>
-      <CalendarIcon :class="calendarIcon()" />
+      <Icon name="ion:calendar-outline" :class="calendarIcon()" />
     </button>
 
     <div v-show="isOpen" :class="calendarDropdown()">

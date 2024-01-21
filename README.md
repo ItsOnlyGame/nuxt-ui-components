@@ -9,8 +9,6 @@ This is a collection of UI components created in Nuxt 3.
 #### NOTICE:
 This is under development.  
 Changes will occur and the project is still in early stages of development.  
-- <b>Main</b> branch contains the latest "stable" changes.  
-- <b>Dev</b> branch contains the "unstable" changes.
 
 ## Why did I create this?
 
@@ -23,10 +21,25 @@ Now I just want the same experience in Nuxt.
 
 ## How does this work?
 
-In your own project:
+First you need to install these dependencies:
 
-1. Make sure you have tailwind installed. [Guide](https://nuxt.com/modules/tailwindcss).
-2. Next you need to install tailwind-variants. [Guide](https://www.tailwind-variants.org/docs/getting-started).
+```bash
+# npm
+npm install tailwindcss tailwind-variants
+npm install --save-dev nuxt-icon @hypernym/nuxt-anime
 
-Now in this repositories [components/UI](components/UI/) folder you can find a bunch of UI components.  
-Copy the ones you want into your own project and start playing with them.
+# yarn
+yarn add tailwindcss tailwind-variants
+yarn add --dev nuxt-icon @hypernym/nuxt-anime
+
+# pnpm
+pnpm add tailwindcss tailwind-variants
+pnpm add -D nuxt-icon @hypernym/nuxt-anime
+```
+
+I suggest reading a bit more about tailwind-variants and how it works from here [Guide](https://www.tailwind-variants.org/docs/getting-started).
+
+After that you need to copy everything from these folders to you own project:
+- [ui-components](ui-components). Move to your components folder, or take example from nuxt.config.ts.
+- [plugins](plugins)
+- [composables](composables)

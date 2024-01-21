@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ['./assets/index.css', './assets/tailwind.css', './assets/fonts/geist.css'],
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@hypernym/nuxt-anime'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@hypernym/nuxt-anime', 'nuxt-icon'],
   typescript: {
     typeCheck: true
   },

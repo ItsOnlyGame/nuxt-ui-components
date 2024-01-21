@@ -12,7 +12,7 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 
 const buttonTV = tv({
-  base: 'inline-flex flex-row items-center justify-center whitespace-nowrap rounded-lg text-sm text-primary-950 transition-colors',
+  base: 'inline-flex flex-row items-center justify-center whitespace-nowrap rounded-lg text-primary-950 transition-colors',
   variants: {
     variant: {
       solid: 'bg-transparent hover:bg-primary-600 active:bg-primary-700',
@@ -20,9 +20,9 @@ const buttonTV = tv({
       selected: 'bg-primary-800 text-primary-50'
     },
     size: {
-      sm: '',
-      md: 'h-9 w-9 p-2',
-      lg: ''
+      sm: 'h-8 w-8 p-2 text-sm',
+      md: 'h-9 w-9 p-2 text-sm',
+      lg: 'h-9 w-9 p-2 text-md'
     }
   },
   defaultVariants: {

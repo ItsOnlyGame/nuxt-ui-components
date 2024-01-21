@@ -4,7 +4,7 @@
     <span> Currently date is {{ date }}! </span>
 
     <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
-      <div class="flex flex-col md:flex-row gap-4">
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
         <DatePicker v-model="date" size="sm" />
         <DatePicker v-model="date" size="md" />
         <DatePicker v-model="date" size="lg" />

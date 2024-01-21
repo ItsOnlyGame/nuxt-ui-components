@@ -6,7 +6,12 @@
     </button>
 
     <div v-show="isOpen" :class="calendarDropdown()">
-      <Calendar :value="$props.modelValue" @input="(value) => emit('update:modelValue', value)" />
+      <Calendar
+        :size="$props.size"
+        :variant="$props.variant"
+        :value="$props.modelValue"
+        @input="(value) => emit('update:modelValue', value)"
+      />
     </div>
   </div>
 </template>
@@ -17,8 +22,7 @@ import { tv, type VariantProps } from 'tailwind-variants'
 const datePickerTV = tv({
   slots: {
     base: 'relative inline-flex',
-    button:
-      'flex min-w-60 flex-row items-center justify-between rounded border-2 px-4 py-1.5 text-sm transition-colors',
+    button: 'flex flex-row items-center justify-between rounded border-2 transition-colors',
     calendarIcon: 'h-5 w-5 text-inherit',
     calendarDropdown: 'absolute top-full z-20 mt-1 flex w-max flex-col rounded shadow shadow-slate-500/30'
   },
@@ -31,9 +35,15 @@ const datePickerTV = tv({
       }
     },
     size: {
-      sm: {},
-      md: {},
-      lg: {}
+      sm: {
+        button: 'min-w-60 px-3 py-1 text-sm'
+      },
+      md: {
+        button: 'min-w-60 px-4 py-1.5 text-sm'
+      },
+      lg: {
+        button: 'text-md min-w-60 px-4 py-1.5'
+      }
     }
   },
   defaultVariants: {

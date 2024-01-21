@@ -3,7 +3,6 @@
     <Icon name="ep:arrow-left-bold" v-if="$props.quickIcon == 'left-arrow'" :class="icon()" />
     <Icon name="ph:circle-fill" v-if="$props.quickIcon == 'center'" :class="icon()" />
     <Icon name="ep:arrow-right-bold" v-if="$props.quickIcon == 'right-arrow'" :class="icon()" />
-    <slot />
   </button>
 </template>
 
@@ -27,13 +26,13 @@ const buttonTV = tv({
     },
     size: {
       sm: {
-        button: ''
+        button: 'h-6 w-6 p-1'
       },
       md: {
         button: 'h-7 w-7 p-1'
       },
       lg: {
-        button: ''
+        button: 'h-8 w-8 p-1'
       }
     }
   },

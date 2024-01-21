@@ -8,9 +8,7 @@
 
       <div :class="styleTV.buttonsContainer()">
         <CalendarQuickButton @click="previousCalendarMonth" :size="$props.size" quick-icon="left-arrow" />
-
         <CalendarQuickButton @click="resetCalendarView" :size="$props.size" quick-icon="center" />
-
         <CalendarQuickButton @click="nextCalendarMonth" :size="$props.size" quick-icon="right-arrow" />
       </div>
     </div>
@@ -41,9 +39,9 @@ const datePickerTV = tv({
     base: 'inline-flex h-max select-none flex-col gap-1 rounded bg-primary-500 p-3',
     header: 'flex flex-row items-center justify-between',
     dateTitle: 'text-md flex flex-row gap-2 pl-1 font-medium',
-    buttonsContainer: 'flex flex-row gap-1',
+    buttonsContainer: 'flex flex-row gap-0.5',
     icon: '',
-    calendar: 'grid grid-cols-7 grid-rows-6 items-center justify-center text-center'
+    calendar: 'grid grid-cols-7 grid-rows-6 gap-y-0.5 items-center justify-center text-center'
   },
   variants: {
     variant: {
@@ -78,7 +76,7 @@ type Props = {
 
 const props = withDefaults(defineProps<Props>(), {
   size: 'md',
-  variant: 'default',
+  variant: 'default'
 })
 
 const emit = defineEmits(['input'])
@@ -119,7 +117,7 @@ const getCalendarButtonStyle = (day: number | null) => {
 
   const isSameYear = String(calendarView.value.year) == date.value?.substring(0, 4)
   const isSameMonth = String(calendarView.value.month + 1).padStart(2, '0') == date.value?.substring(5, 7)
-  const isSameDay = currentDayValue.value == String(day)
+  const isSameDay = currentDayValue.value == String(day).padStart(2, '0')
 
   if (isSameDay && isSameMonth && isSameYear) {
     return 'selected'
@@ -142,7 +140,6 @@ const nextCalendarMonth = () => {
   }
   calendarView.value.month++
 }
-
 
 const currentDayValue = computed(() => {
   const valueDay = date.value?.substring(8, 10)

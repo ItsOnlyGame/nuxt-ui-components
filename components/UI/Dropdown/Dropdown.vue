@@ -2,19 +2,7 @@
   <div :class="base()" v-click-outside="() => (isOpen = false)">
     <button type="button" :class="button()" @click="() => (isOpen = !isOpen)">
       <span>{{ props.label }}</span>
-      <span :class="iconContainer()">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          :class="icon()"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="1.5"
-          role="graphics-symbol"
-        >
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-        </svg>
-      </span>
+      <Icon name="solar:alt-arrow-down-bold" :class="icon()" />
     </button>
     <div v-show="isOpen" :class="content()">
       <slot />
@@ -34,9 +22,10 @@ import { tv, type VariantProps } from 'tailwind-variants'
 const dropdownTV = tv({
   slots: {
     base: 'relative inline-flex',
-    iconContainer: 'relative only:-mx-5',
-    button: 'inline-flex flex-row items-center gap-x-2 whitespace-nowrap rounded font-semibold text-primary-950 transition-colors',
-    icon: '',
+    iconContainer: '',
+    button:
+      'inline-flex flex-row items-center gap-x-2 whitespace-nowrap rounded font-semibold text-primary-950 transition-colors',
+    icon: 'relative only:-mx-5',
     content: 'absolute top-full z-20'
   },
   variants: {
@@ -64,7 +53,7 @@ const dropdownTV = tv({
       lg: {
         icon: 'h-5 w-5',
         content: 'mt-1 w-80',
-        button: 'px-4 py-2 text-md'
+        button: 'text-md px-4 py-2'
       }
     }
   },

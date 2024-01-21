@@ -14,19 +14,7 @@
     <label :for="selectId" :class="label()">
       {{ props.label }}
     </label>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      :class="svg()"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      role="graphics-symbol"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        clip-rule="evenodd"
-      />
-    </svg>
+    <Icon name="solar:alt-arrow-down-bold" :class="svg()" />
   </div>
 </template>
 
@@ -58,12 +46,12 @@ const selectTV = tv({
       md: {
         label: '-top-2 left-3 px-1.5 text-sm',
         select: 'h-12 px-4',
-        svg: 'right-2 top-3.5 h-5 w-5'
+        svg: 'right-2 top-3.5 h-6 w-6'
       },
       lg: {
         label: 'text-md -top-3 left-3.5 px-2',
         select: 'h-14 px-5 text-lg',
-        svg: 'right-2 top-4 h-6 w-6'
+        svg: 'right-2 top-4 h-7 w-7'
       }
     }
   },

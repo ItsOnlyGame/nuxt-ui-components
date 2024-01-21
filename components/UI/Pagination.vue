@@ -4,33 +4,13 @@
       <li v-if="showFirstButton">
         <button type="button" @click="() => emitClick(1)" :class="button()">
           <span class="sr-only">First</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            :class="icon()"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-            role="graphics-symbol"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
-          </svg>
+          <Icon name="radix-icons:double-arrow-left" :class="icon()" />
         </button>
       </li>
       <li v-if="showQuickLinks && !hidePrevButton">
         <button type="button" @click="() => emitClick(previousPage)" :class="button()">
           <span class="sr-only">Previous</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            :class="icon()"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-            role="graphics-symbol"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-          </svg>
+          <Icon name="ep:arrow-left-bold" :class="icon()" />
         </button>
       </li>
 
@@ -48,33 +28,13 @@
       <li v-if="showQuickLinks && !hideNextButton">
         <button type="button" @click="() => emitClick(nextPage)" :class="button()">
           <span class="sr-only">Next</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            :class="icon()"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-            role="graphics-symbol"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-          </svg>
+          <Icon name="ep:arrow-right-bold" :class="icon()" />
         </button>
       </li>
       <li v-if="showLastButton">
         <button type="button" @click="() => emitClick(props.count)" :class="button()">
           <span class="sr-only">Last</span>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            :class="icon()"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.5"
-            role="graphics-symbol"
-          >
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
-          </svg>
+          <Icon name="radix-icons:double-arrow-right" :class="icon()" />
         </button>
       </li>
     </ul>

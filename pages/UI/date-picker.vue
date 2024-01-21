@@ -4,18 +4,10 @@
     <span> Currently date is {{ date }}! </span>
 
     <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
-      <div class="flex flex-row gap-4">
+      <div class="flex flex-col md:flex-row gap-4">
         <DatePicker v-model="date" size="sm" />
         <DatePicker v-model="date" size="md" />
         <DatePicker v-model="date" size="lg" />
-      </div>
-    </div>
-
-    <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
-      <div class="flex flex-row gap-4">
-        <DatePicker v-model="date" size="sm" :allow-input-clear="true" />
-        <DatePicker v-model="date" size="md" :allow-input-clear="true" />
-        <DatePicker v-model="date" size="lg" :allow-input-clear="true" />
       </div>
     </div>
   </div>

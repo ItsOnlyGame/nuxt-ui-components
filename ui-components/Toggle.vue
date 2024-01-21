@@ -3,12 +3,12 @@
     <input
       :class="toggle()"
       type="checkbox"
-      :id="toggleId"
+      :id="$props.id"
       :value="modelValue"
       @input="emitUpdate"
       :disabled="disabled"
     />
-    <label :class="label()" :for="toggleId">
+    <label :class="label()" :for="$props.id">
       {{ props.helper }}
     </label>
     <small :class="small()">
@@ -77,9 +77,9 @@ type Props = {
   label?: string
 
   // Toggle props
+  id: string
   modelValue?: boolean
   disabled?: boolean
-  id?: string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -90,12 +90,6 @@ const emitUpdate = (event: Event) => {
 
 const props = defineProps<Props>()
 
-const toggleId = ref(props.id || '')
-onMounted(() => {
-  if (!props.id) {
-    toggleId.value = crypto.randomUUID()
-  }
-})
 
 const { base, toggle, small, label, svg } = toggleTV({
   size: props.size,

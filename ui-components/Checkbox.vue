@@ -3,12 +3,12 @@
     <input
       :class="checkbox()"
       type="checkbox"
-      :id="checkboxId"
+      :id="$props.id"
       :checked="modelValue"
       @input="emitUpdate"
       :disabled="disabled"
     />
-    <label :class="label()" :for="checkboxId">
+    <label :class="label()" :for="$props.id">
       {{ props.label }}
     </label>
     <small :class="small()">
@@ -91,9 +91,9 @@ type Props = {
   label?: string
 
   // Checkbox props
+  id: string
   modelValue?: boolean
   disabled?: boolean,
-  id?: string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -103,13 +103,6 @@ const emitUpdate = (event: Event) => {
 }
 
 const props = defineProps<Props>()
-
-const checkboxId = ref(props.id || '')
-onMounted(() => {
-  if (!props.id) {
-    checkboxId.value = crypto.randomUUID()
-  }
-})
 
 const { base, checkbox, small, label, svg } = checkboxTV({
   size: props.size,

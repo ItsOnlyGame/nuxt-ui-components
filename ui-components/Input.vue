@@ -1,7 +1,7 @@
 <template>
   <div :class="base()">
     <input
-      :id="inputId"
+      :id="$props.id"
       :type="$props.type"
       :placeholder="$props.label"
       :disabled="$props.disabled"
@@ -10,7 +10,7 @@
       @input="emitUpdate"
       :pattern="pattern"
     />
-    <label :for="inputId" :class="label()">
+    <label :for="$props.id" :class="label()">
       {{ $props.label }}
     </label>
     <small :class="small()">
@@ -78,12 +78,12 @@ type Props = {
   label?: string
 
   // Text input props
+  id: string
   value?: string | number | null
   modelValue?: string | number | null
   disabled?: boolean
   pattern?: string
   type?: 'text' | 'password' | 'number'
-  id?: string
 
   // Number input
   min?: number | string
@@ -104,13 +104,6 @@ const emitUpdate = (event: Event) => {
 
 const props = withDefaults(defineProps<Props>(), {
   type: 'text'
-})
-
-const inputId = ref(props.id || '')
-onMounted(() => {
-  if (!props.id) {
-    inputId.value = crypto.randomUUID()
-  }
 })
 
 const { base, input, small, label } = inputTV({

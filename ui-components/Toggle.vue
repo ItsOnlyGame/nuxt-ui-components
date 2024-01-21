@@ -9,7 +9,7 @@
       :disabled="disabled"
     />
     <label :class="label()" :for="$props.id">
-      {{ props.helper }}
+      {{ $props.label }}
     </label>
     <small v-if="$props.helper" :class="small()">
       <span>{{ $props.helper }}</span>

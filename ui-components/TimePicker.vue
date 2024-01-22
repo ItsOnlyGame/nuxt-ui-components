@@ -1,29 +1,27 @@
 <template>
   <div :class="base()">
+    <input
+      type="text"
+      :class="input()"
+      @input="inputEvent"
+      v-model="hoursValue"
+      @keydown="handleKeyboardInput"
+      maxlength="2"
+      ref="hoursInputRef"
+    />
+    <input
+      type="text"
+      :class="input()"
+      @input="inputEvent"
+      v-model="minutesValue"
+      @keydown="handleKeyboardInput"
+      maxlength="2"
+      ref="minutesInputRef"
+    />
+
     <label :class="label()">
       {{ $props.label }}
     </label>
-    <div :class="timeInput()">
-      <input
-        type="text"
-        :class="input()"
-        @input="inputEvent"
-        v-model="hoursValue"
-        @keydown="handleKeyboardInput"
-        maxlength="2"
-        ref="hoursInputRef"
-      />
-      <p :class="seperator()">:</p>
-      <input
-        type="text"
-        :class="input()"
-        @input="inputEvent"
-        v-model="minutesValue"
-        @keydown="handleKeyboardInput"
-        maxlength="2"
-        ref="minutesInputRef"
-      />
-    </div>
   </div>
 </template>
 
@@ -31,42 +29,33 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 const timePickerTV = tv({
   slots: {
-    base: 'relative flex h-max select-none flex-col items-start justify-center rounded',
-    label: '',
-    timeInput: 'flex flex-row items-center justify-center',
-    input: 'rounded text-center outline-none',
-    seperator: ''
+    base: 'relative flex h-max select-none flex-row items-start justify-center rounded border-2',
+    label: 'absolute z-[1] transition-all',
+    input: 'rounded text-center outline-none'
   },
   variants: {
     variant: {
       default: {
-        base: 'bg-primary-200',
-        label: 'text-primary-950',
-        input: 'bg-primary-100',
-        seperator: ''
+        base: 'border-primary-500 text-primary-950 focus:border-primary-600 disabled:border-stone-400 disabled:bg-transparent',
+        label: 'bg-body-light text-primary-500 peer-focus:text-primary-600 peer-disabled:text-stone-400',
+        input: 'bg-primary-200 focus:bg-primary-400'
       }
     },
     size: {
       sm: {
-        base: 'px-4 py-2',
-        label: 'font-semibold',
-        timeInput: 'gap-1',
-        input: 'h-10 min-h-max w-10 text-xl font-semibold',
-        seperator: 'mb-2 text-3xl font-semibold'
+        base: 'gap-2 p-1 pt-2',
+        label: '-top-2 left-3.5 px-1.5 text-xs',
+        input: 'text-md h-8 w-12'
       },
       md: {
-        base: 'px-4 py-2',
-        label: 'font-semibold',
-        timeInput: 'gap-1',
-        input: 'h-12 min-h-max w-12 text-2xl font-semibold',
-        seperator: 'mb-2 text-3xl font-semibold'
+        base: 'gap-2 p-1 pt-2',
+        label: '-top-3 left-3.5 px-1.5 text-sm',
+        input: 'h-9 w-16 text-lg'
       },
       lg: {
-        base: 'px-6 py-2 gap-1',
-        label: 'font-semibold text-lg',
-        timeInput: 'gap-1',
-        input: 'h-14 min-h-max w-14 text-3xl font-semibold',
-        seperator: 'mb-2 text-3xl font-semibold'
+        base: 'gap-2 p-1 pt-3',
+        label: 'text-md -top-3 left-3.5 px-2',
+        input: 'h-10 w-16 text-lg'
       }
     }
   },
@@ -89,7 +78,7 @@ type Props = {
 const emit = defineEmits(['update:modelValue'])
 const props = defineProps<Props>()
 
-const { base, label, timeInput, input, seperator } = timePickerTV({
+const { base, label, input } = timePickerTV({
   size: props.size,
   variant: props.variant
 })

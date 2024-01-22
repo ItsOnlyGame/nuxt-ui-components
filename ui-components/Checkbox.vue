@@ -96,7 +96,7 @@ type Props = {
   label?: string
 
   // Checkbox props
-  id: string
+  id?: string
   modelValue?: boolean
   disabled?: boolean
   invalid?: boolean

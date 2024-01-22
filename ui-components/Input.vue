@@ -82,7 +82,7 @@ type Props = {
   label?: string
 
   // Text input props
-  id: string
+  id?: string
   value?: string | number | null
   modelValue?: string | number | null
   disabled?: boolean

@@ -83,7 +83,7 @@ type Props = {
   label?: string
 
   // Toggle props
-  id: string
+  id?: string
   modelValue?: boolean
   disabled?: boolean
   invalid?: boolean

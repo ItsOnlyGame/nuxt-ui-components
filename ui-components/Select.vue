@@ -76,7 +76,7 @@ type Props = {
   label?: string
 
   // Select props
-  id: string
+  id?: string
   modelValue?: string | number
   disabled?: boolean
   required?: boolean

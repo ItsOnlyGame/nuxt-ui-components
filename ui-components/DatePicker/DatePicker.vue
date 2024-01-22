@@ -73,7 +73,7 @@ type Props = {
   label?: string
 
   modelValue?: string | null
-  id: string
+  id?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {

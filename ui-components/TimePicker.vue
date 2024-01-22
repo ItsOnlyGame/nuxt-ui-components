@@ -71,8 +71,8 @@ type Props = {
   variant?: TimerPickerProps['variant']
   size?: TimerPickerProps['size']
 
+  modelValue?: string
   label?: string
-  value?: string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -83,8 +83,8 @@ const { base, label, input } = timePickerTV({
   variant: props.variant
 })
 
-const hoursValue = ref(props.value ? props.value.split(':')[0] : '')
-const minutesValue = ref(props.value ? props.value.split(':')[1] : '')
+const hoursValue = ref(props.modelValue ? props.modelValue.split(':')[0] : '')
+const minutesValue = ref(props.modelValue ? props.modelValue.split(':')[1] : '')
 
 const hoursInputRef = ref<HTMLInputElement | null>(null)
 const minutesInputRef = ref<HTMLInputElement | null>(null)

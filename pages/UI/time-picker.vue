@@ -5,9 +5,9 @@
 
     <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
       <div class="flex flex-row gap-4">
-        <TimePicker label="Time" :value="time" v-model="time" size="lg" />
-        <TimePicker label="Time" :value="time" v-model="time" size="md" />
-        <TimePicker label="Time" :value="time" v-model="time" size="sm" />
+        <TimePicker label="Time" v-model="time" size="lg" />
+        <TimePicker label="Time" v-model="time" size="md" />
+        <TimePicker label="Time" v-model="time" size="sm" />
       </div>
     </div>
   </div>

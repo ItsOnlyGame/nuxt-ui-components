@@ -14,26 +14,6 @@
         <Textarea label="Text" helper="Textarea can also have helper text" size="lg" variant="default" v-model="text" disabled />
       </div>
     </div>
-
-    <Heading size="sm">Invalid Text Input</Heading>
-    <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
-      <div class="flex flex-col gap-4 w-full max-w-lg">
-        <form class="flex flex-col gap-4 w-full max-w-lg">
-          <Textarea label="Text" helper="Textarea can also have helper text" size="sm" variant="default" v-model="text" />
-          <Textarea label="Text" helper="Textarea can also have helper text" size="md" variant="default" v-model="text" />
-          <Textarea label="Text" helper="Textarea can also have helper text" size="lg" variant="default" v-model="text" />
-        </form>
-      </div>
-    </div>
-
-    <Heading size="sm">Invalid Text Input</Heading>
-    <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
-      <div class="flex flex-col gap-4 w-full max-w-lg">
-        <Textarea label="Text" helper="Textarea can also have helper text" size="sm" variant="default" limit="20" v-model="text" />
-        <Textarea label="Text" helper="Textarea can also have helper text" size="md" variant="default" limit="20" v-model="text" />
-        <Textarea label="Text" helper="Textarea can also have helper text" size="lg" variant="default" limit="20" v-model="text" />
-      </div>
-    </div>
   </div>
 </template>
 

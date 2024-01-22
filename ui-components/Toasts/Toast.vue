@@ -1,5 +1,5 @@
 <template>
-  <button :class="toast()" role="alert" @click="() => close($props.id)">
+  <button type="button" :class="toast()" role="alert" @click="() => close($props.id)">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       :class="icon()"
@@ -82,7 +82,7 @@ const toastTV = tv({
       },
       error: {
         toast: 'border-red-200 bg-pink-100 text-red-500',
-        progress: 'bg-red-400',
+        progress: 'bg-red-400'
       },
       warn: {
         toast: 'border-amber-100 bg-amber-50 text-amber-500',

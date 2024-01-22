@@ -1,57 +1,59 @@
 <template>
   <div :class="base()">
-    <input
-      :id="inputId"
-      :type="$props.type"
+    <textarea
+      :id="textareaId"
+      type="text"
+      :rows="rows || 3"
       :placeholder="props.label"
-      :disabled="props.disabled"
-      :class="input()"
       :value="modelValue"
       @input="emitUpdate"
-      :pattern="pattern"
+      :class="textarea()"
+      :maxlength="$props.limit"
+      :disabled="disabled"
     />
-    <label :for="inputId" :class="label()">
-      {{ $props.label }}
+    <label :for="textareaId" :class="label()">
+      {{ props.label }}
     </label>
-    <small :class="small()">
-      <span>{{ $props.helper }}</span>
+    <small v-if="$props.helper || $props.limit" :class="small()">
+      <span v-if="$props.helper"> {{ props.helper }} </span>
+      <span v-if="$props.limit">{{ charCount }}/{{ $props.limit }}</span>
     </small>
   </div>
 </template>
 
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
-const inputTV = tv({
+const textareaTV = tv({
   slots: {
     base: 'relative flex flex-col',
-    input: 'peer relative w-full outline-none transition-all disabled:cursor-not-allowed',
+    textarea: 'peer relative w-full outline-none transition-colors disabled:cursor-not-allowed',
     label: 'absolute z-[1] transition-all',
     small: 'flex w-full justify-between transition-all'
   },
   variants: {
     variant: {
       default: {
+        textarea:
+          'rounded border-2 border-primary-500 text-primary-950 placeholder-transparent invalid:border-red-500 focus:border-primary-700 disabled:border-stone-400 disabled:bg-transparent',
         label:
           'bg-body-light text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400',
-        input:
-          'rounded border-2 border-primary-500 text-primary-950 placeholder-transparent invalid:border-red-500 focus:border-primary-700 disabled:border-stone-400 disabled:bg-transparent',
         small: 'text-primary-500 peer-invalid:text-red-500 peer-focus:text-primary-800 peer-disabled:text-stone-400'
       }
     },
     size: {
       sm: {
-        label: '-top-2 left-3.5 px-1.5 text-xs',
-        input: 'h-10 px-4',
+        textarea: 'px-4 py-2 text-sm',
+        label: '-top-2 left-2 px-2 text-xs',
         small: 'px-2 py-1 text-xs'
       },
       md: {
-        label: '-top-2 left-3 px-1.5 text-sm',
-        input: 'h-12 px-4',
+        textarea: 'text-md px-4 py-2.5',
+        label: '-top-2.5 left-2 px-2 text-sm',
         small: 'px-2 py-1 text-xs'
       },
       lg: {
-        label: 'text-md -top-3 left-3.5 px-2',
-        input: 'h-14 px-5 text-lg',
+        textarea: 'px-4 py-3 text-lg',
+        label: 'text-md -top-3 left-2 px-2',
         small: 'px-2 py-1 text-xs'
       }
     }
@@ -62,11 +64,11 @@ const inputTV = tv({
   }
 })
 
-type InputProps = VariantProps<typeof inputTV>
+type TextareaProps = VariantProps<typeof textareaTV>
 type Props = {
   // Customization props
-  variant?: InputProps['variant']
-  size?: InputProps['size']
+  variant?: TextareaProps['variant']
+  size?: TextareaProps['size']
 
   // Label and helper text props
   helper?: string
@@ -75,9 +77,8 @@ type Props = {
   // Text input props
   modelValue?: string
   disabled?: boolean
-  pattern?: string
-  type?: 'text' | 'password',
-  id?: string
+  rows?: number
+  limit?: number | string
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -86,19 +87,16 @@ const emitUpdate = (event: Event) => {
   emit('update:modelValue', inputElement.value)
 }
 
-const props = withDefaults(defineProps<Props>(), {
-  type: 'text'
-})
+const props = defineProps<Props>()
 
-const inputId = ref(props.id || '')
-onMounted(() => {
-  if (!props.id) {
-    inputId.value = crypto.randomUUID()
-  }
-})
+const textareaId = crypto.randomUUID()
 
-const { base, input, small, label } = inputTV({
+const { base, textarea, small, label } = textareaTV({
   size: props.size,
   variant: props.variant
+})
+
+const charCount = computed(() => {
+  return props.modelValue?.length
 })
 </script>

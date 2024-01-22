@@ -9,7 +9,7 @@ export default withTV({
       colors: {
         body: {
           light: '#fff',
-          dark: '#000000',
+          dark: '#000000'
         },
 
         primary: {
@@ -23,10 +23,10 @@ export default withTV({
           700: '#6374ae',
           800: '#4a5989',
           900: '#414e6e',
-          950: '#262c40',
-        },
-      },
-    },
+          950: '#262c40'
+        }
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 })

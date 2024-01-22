@@ -1,17 +1,17 @@
 <template>
   <div class="relative flex flex-wrap items-center">
     <input
-      :class="toggle()"
+      :class="toggleStyle.toggle()"
       type="checkbox"
-      :id="toggleId"
+      :id="$props.id"
       :value="modelValue"
       @input="emitUpdate"
       :disabled="disabled"
     />
-    <label :class="label()" :for="toggleId">
-      {{ props.helper }}
+    <label :class="toggleStyle.label()" :for="$props.id">
+      {{ $props.label }}
     </label>
-    <small :class="small()">
+    <small v-if="$props.helper" :class="toggleStyle.small()">
       <span>{{ $props.helper }}</span>
     </small>
   </div>
@@ -35,8 +35,14 @@ const toggleTV = tv({
         toggle:
           'rounded-full bg-slate-300 after:bg-slate-500 checked:bg-primary-300 checked:after:bg-primary-500 hover:bg-slate-400 after:hover:bg-slate-600 checked:hover:bg-primary-300 checked:after:hover:bg-primary-600 disabled:bg-slate-200 disabled:after:bg-slate-300',
         label: 'text-black peer-disabled:text-slate-500',
-        small: 'text-slate-500 peer-invalid:text-red-500',
+        small: 'text-slate-500',
         svg: '-rotate-90 fill-white stroke-white opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
+      }
+    },
+    invalid: {
+      true: {
+        toggle:
+          'bg-red-300 after:bg-red-500 checked:bg-red-300 checked:after:bg-red-500 hover:bg-red-400 after:hover:bg-red-600 checked:hover:bg-red-300 checked:after:hover:bg-red-600'
       }
     },
     size: {
@@ -77,8 +83,10 @@ type Props = {
   label?: string
 
   // Toggle props
+  id?: string
   modelValue?: boolean
   disabled?: boolean
+  invalid?: boolean
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -88,10 +96,12 @@ const emitUpdate = (event: Event) => {
 }
 
 const props = defineProps<Props>()
-const toggleId = crypto.randomUUID()
 
-const { base, toggle, small, label, svg } = toggleTV({
-  size: props.size,
-  variant: props.variant
+const toggleStyle = computed(() => {
+  return toggleTV({
+    size: props.size,
+    variant: props.variant,
+    invalid: props.invalid
+  })
 })
 </script>

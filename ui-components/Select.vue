@@ -1,8 +1,7 @@
 <template>
   <div :class="base()">
     <select
-      :id="selectId"
-      :name="selectId"
+      :id="$props.id"
       :required="props.required"
       :class="select()"
       :value="props.modelValue"
@@ -11,22 +10,10 @@
     >
       <slot />
     </select>
-    <label :for="selectId" :class="label()">
+    <label :for="$props.id" :class="label()">
       {{ props.label }}
     </label>
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      :class="svg()"
-      viewBox="0 0 20 20"
-      fill="currentColor"
-      role="graphics-symbol"
-    >
-      <path
-        fill-rule="evenodd"
-        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-        clip-rule="evenodd"
-      />
-    </svg>
+    <Icon name="solar:alt-arrow-down-bold" :class="svg()" />
   </div>
 </template>
 
@@ -34,7 +21,7 @@
 import { tv, type VariantProps } from 'tailwind-variants'
 const selectTV = tv({
   slots: {
-    base: 'relative my-6 md:w-60',
+    base: 'relative md:w-60',
     select: 'peer relative w-full appearance-none outline-none transition-all disabled:cursor-not-allowed',
     label: 'absolute z-[1] transition-all',
     svg: 'pointer-events-none absolute transition-all peer-disabled:cursor-not-allowed'
@@ -56,14 +43,19 @@ const selectTV = tv({
         svg: 'right-2 top-3 h-5 w-5'
       },
       md: {
-        label: '-top-2 left-3 px-1.5 text-sm',
-        select: 'h-12 px-4',
-        svg: 'right-2 top-3.5 h-5 w-5'
+        label: '-top-2 left-3.5 px-1.5 text-xs',
+        select: 'h-10 px-4',
+        svg: 'right-2 top-3 h-5 w-5'
       },
       lg: {
+        label: '-top-2 left-3 px-1.5 text-sm',
+        select: 'h-12 px-4',
+        svg: 'right-2 top-3.5 h-6 w-6'
+      },
+      xl: {
         label: 'text-md -top-3 left-3.5 px-2',
         select: 'h-14 px-5 text-lg',
-        svg: 'right-2 top-4 h-6 w-6'
+        svg: 'right-2 top-4 h-7 w-7'
       }
     }
   },
@@ -84,7 +76,8 @@ type Props = {
   label?: string
 
   // Select props
-  modelValue?: string
+  id?: string
+  modelValue?: string | number
   disabled?: boolean
   required?: boolean
 }
@@ -92,12 +85,16 @@ type Props = {
 const emit = defineEmits(['update:modelValue'])
 const emitUpdate = (event: Event) => {
   const selectElement = event.target as HTMLSelectElement
+
+  if (typeof props.modelValue == 'number') {
+    emit('update:modelValue', Number(selectElement.value))
+    return
+  }
+
   emit('update:modelValue', selectElement.value)
 }
 
 const props = defineProps<Props>()
-
-const selectId = crypto.randomUUID()
 
 const { base, select, svg, label } = selectTV({
   size: props.size,

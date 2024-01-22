@@ -2,29 +2,29 @@
   <div class="flex w-full flex-row flex-wrap justify-evenly gap-6">
     <div class="flex flex-col items-center gap-2">
       <Heading size="sm">Solid buttons</Heading>
-      <Button @click="onClick" size="xs">Some text (xs)</Button>
-      <Button @click="onClick" size="sm">Some text (sm)</Button>
-      <Button @click="onClick" size="md">Some text (md)</Button>
-      <Button @click="onClick" size="lg">Some text (lg)</Button>
-      <Button @click="onClick" size="xl">Some text (xl)</Button>
+      <Button @click="onClick" size="xs" id="checkbox-solid-01">Some text (xs)</Button>
+      <Button @click="onClick" size="sm" id="checkbox-solid-02">Some text (sm)</Button>
+      <Button @click="onClick" size="md" id="checkbox-solid-03">Some text (md)</Button>
+      <Button @click="onClick" size="lg" id="checkbox-solid-04">Some text (lg)</Button>
+      <Button @click="onClick" size="xl" id="checkbox-solid-05">Some text (xl)</Button>
     </div>
 
     <div class="flex flex-col items-center gap-2">
       <Heading size="sm">Ghost buttons</Heading>
-      <Button @click="onClick" size="xs" variant="ghost">Some text (xs)</Button>
-      <Button @click="onClick" size="sm" variant="ghost">Some text (sm)</Button>
-      <Button @click="onClick" size="md" variant="ghost">Some text (md)</Button>
-      <Button @click="onClick" size="lg" variant="ghost">Some text (lg)</Button>
-      <Button @click="onClick" size="xl" variant="ghost">Some text (xl)</Button>
+      <Button @click="onClick" size="xs" variant="ghost" id="checkbox-ghost-01">Some text (xs)</Button>
+      <Button @click="onClick" size="sm" variant="ghost" id="checkbox-solid-02">Some text (sm)</Button>
+      <Button @click="onClick" size="md" variant="ghost" id="checkbox-solid-03">Some text (md)</Button>
+      <Button @click="onClick" size="lg" variant="ghost" id="checkbox-solid-04">Some text (lg)</Button>
+      <Button @click="onClick" size="xl" variant="ghost" id="checkbox-solid-05">Some text (xl)</Button>
     </div>
 
     <div class="flex flex-col items-center gap-2">
-      <Heading size="sm">Outline Buttons</Heading>
-      <Button @click="onClick" size="xs" variant="outline">Some text (xs)</Button>
-      <Button @click="onClick" size="sm" variant="outline">Some text (sm)</Button>
-      <Button @click="onClick" size="md" variant="outline">Some text (md)</Button>
-      <Button @click="onClick" size="lg" variant="outline">Some text (lg)</Button>
-      <Button @click="onClick" size="xl" variant="outline">Some text (xl)</Button>
+      <Heading size="sm">Soft Buttons</Heading>
+      <Button @click="onClick" size="xs" variant="soft" id="checkbox-soft-01">Some text (xs)</Button>
+      <Button @click="onClick" size="sm" variant="soft" id="checkbox-soft-02">Some text (sm)</Button>
+      <Button @click="onClick" size="md" variant="soft" id="checkbox-soft-03">Some text (md)</Button>
+      <Button @click="onClick" size="lg" variant="soft" id="checkbox-soft-04">Some text (lg)</Button>
+      <Button @click="onClick" size="xl" variant="soft" id="checkbox-soft-05">Some text (xl)</Button>
     </div>
   </div>
 </template>

@@ -1,21 +1,21 @@
 <template>
-  <div :class="base()">
+  <div :class="checkboxStyle.base()">
     <input
-      :class="checkbox()"
+      :class="checkboxStyle.checkbox()"
       type="checkbox"
-      :id="checkboxId"
-      :value="modelValue"
+      :id="$props.id"
+      :checked="modelValue"
       @input="emitUpdate"
       :disabled="disabled"
     />
-    <label :class="label()" :for="checkboxId">
+    <label :class="checkboxStyle.label()" :for="$props.id">
       {{ props.label }}
     </label>
-    <small :class="small()">
-      <span>{{ props.helper }}</span>
+    <small v-if="$props.helper" :class="checkboxStyle.small()">
+      <span>{{ $props.helper }}</span>
     </small>
     <svg
-      :class="svg()"
+      :class="checkboxStyle.icon()"
       viewBox="0 0 16 16"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,7 @@ const checkboxTV = tv({
       'peer cursor-pointer appearance-none transition-colors focus:outline-none focus-visible:outline-none disabled:cursor-not-allowed',
     label: 'cursor-pointer peer-disabled:cursor-not-allowed',
     small: 'w-full transition',
-    svg: 'pointer-events-none absolute transition-all duration-300 peer-disabled:cursor-not-allowed'
+    icon: 'pointer-events-none absolute transition-all duration-300 peer-disabled:cursor-not-allowed'
   },
   variants: {
     variant: {
@@ -49,8 +49,13 @@ const checkboxTV = tv({
         checkbox:
           'rounded border-2 border-slate-500 bg-white checked:border-primary-500 checked:bg-primary-500 checked:hover:border-primary-600 checked:hover:bg-primary-600 disabled:border-primary-200 disabled:bg-primary-100',
         label: 'text-black peer-disabled:text-slate-500',
-        small: 'text-slate-500 peer-invalid:text-red-500',
-        svg: '-rotate-90 fill-white stroke-white opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
+        small: 'text-slate-500',
+        icon: '-rotate-90 fill-white stroke-white opacity-0 peer-checked:rotate-0 peer-checked:opacity-100'
+      }
+    },
+    invalid: {
+      true: {
+        checkbox: 'border-red-500 checked:border-red-500 checked:bg-red-500 checked:hover:border-red-600 checked:hover:bg-red-600',
       }
     },
     size: {
@@ -58,19 +63,19 @@ const checkboxTV = tv({
         checkbox: 'h-3.5 w-3.5',
         label: 'pl-2 text-sm',
         small: 'py-0.5 pl-6 text-xs',
-        svg: 'left-0 top-1 h-3.5 w-3.5'
+        icon: 'left-0 top-1 h-3.5 w-3.5'
       },
       md: {
         checkbox: 'h-4 w-4',
         label: 'text-md pl-2',
         small: 'py-0.5 pl-[26px] text-xs',
-        svg: 'left-0 top-1 h-4 w-4'
+        icon: 'left-0 top-1 h-4 w-4'
       },
       lg: {
         checkbox: 'h-5 w-5',
         label: 'pl-2 text-lg',
         small: 'py-0.5 pl-[30px] text-xs',
-        svg: 'left-0 top-1 h-5 w-5'
+        icon: 'left-0 top-1 h-5 w-5'
       }
     }
   },
@@ -91,9 +96,10 @@ type Props = {
   label?: string
 
   // Checkbox props
-  modelValue?: boolean
-  disabled?: boolean,
   id?: string
+  modelValue?: boolean
+  disabled?: boolean
+  invalid?: boolean
 }
 
 const emit = defineEmits(['update:modelValue'])
@@ -104,15 +110,11 @@ const emitUpdate = (event: Event) => {
 
 const props = defineProps<Props>()
 
-const checkboxId = ref(props.id || '')
-onMounted(() => {
-  if (!props.id) {
-    checkboxId.value = crypto.randomUUID()
-  }
-})
-
-const { base, checkbox, small, label, svg } = checkboxTV({
-  size: props.size,
-  variant: props.variant
+const checkboxStyle = computed(() => {
+  return checkboxTV({
+    size: props.size,
+    variant: props.variant,
+    invalid: props.invalid
+  })
 })
 </script>

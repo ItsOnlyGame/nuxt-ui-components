@@ -3,6 +3,7 @@
     <ul :class="tabList()" role="tablist">
       <li v-for="(tabData, index) in $props.tabs" :key="tabData.slot">
         <button
+          type="button"
           :class="tab({ class: selectedSlot == index ? selectedTab() : '' })"
           role="tab"
           @click="() => (selectedSlot = index)"

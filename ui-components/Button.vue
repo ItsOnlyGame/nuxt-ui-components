@@ -16,8 +16,8 @@ const buttonTV = tv({
   variants: {
     variant: {
       solid: 'bg-primary-400 hover:bg-primary-500 active:bg-primary-400',
-      ghost: 'bg-transparent hover:bg-primary-300 hover:bg-opacity-80 active:bg-primary-400',
-      soft: 'bg-primary-500 bg-opacity-40 hover:bg-primary-500 active:bg-primary-400'
+      ghost: 'bg-transparent hover:bg-primary-300/80 active:bg-primary-400',
+      soft: 'bg-primary-500/40 hover:bg-primary-500 active:bg-primary-400'
     },
     size: {
       xs: 'px-2 py-1 text-sm font-normal',

@@ -2,7 +2,7 @@
   <component
     :is="component"
     :to="$props.to"
-    type="button"
+    :type="$props.type"
     :class="buttonTV({ size: props.size, variant: props.variant, class: props.class })"
     @click="(e: Event) => $emit('click', e)"
   >
@@ -36,6 +36,7 @@ const buttonTV = tv({
   }
 })
 
+type ButtonTypes = 'button' | 'submit' | 'reset'
 type ButtonVariants = VariantProps<typeof buttonTV>
 type Props = {
   size?: ButtonVariants['size']
@@ -44,10 +45,14 @@ type Props = {
 
   to?: string
   newPage?: boolean
+
+  type?: ButtonTypes
 }
 
 defineEmits(['click'])
-const props = defineProps<Props>()
+const props = withDefaults(defineProps<Props>(), {
+  type: 'button'
+})
 
 const component = computed(() => {
   if (props.to) {

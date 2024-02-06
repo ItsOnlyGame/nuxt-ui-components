@@ -27,6 +27,11 @@
       <Button @click="onClick" size="xl" variant="soft" id="checkbox-soft-05">Some text (xl)</Button>
     </div>
   </div>
+
+  <div class="self-center">
+    <p>These buttons can also function as link buttons, by using them like NuxtLink.</p>
+    <p>Notice: target="_blank" is replaced by :newPage="true"</p>
+  </div>
 </template>
 
 <script setup>
@@ -35,7 +40,7 @@ definePageMeta({
   description: 'Nuxt UI button components'
 })
 
-const onClick = (e) => {
+const onClick = () => {
   console.log('button works!')
 }
 </script>

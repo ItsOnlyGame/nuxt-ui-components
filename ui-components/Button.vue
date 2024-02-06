@@ -1,15 +1,18 @@
 <template>
-  <button
+  <component
+    :is="component"
+    :to="$props.to"
     type="button"
     :class="buttonTV({ size: props.size, variant: props.variant, class: props.class })"
-    @click="(e) => $emit('click', e)"
+    @click="(e: Event) => $emit('click', e)"
   >
     <slot />
-  </button>
+  </component>
 </template>
 
 <script setup lang="ts">
 import { tv, type VariantProps } from 'tailwind-variants'
+import { NuxtLink } from '#components'
 
 const buttonTV = tv({
   base: 'inline-flex flex-row items-center gap-x-2 whitespace-nowrap rounded text-primary-950 transition-colors',
@@ -38,8 +41,19 @@ type Props = {
   size?: ButtonVariants['size']
   variant?: ButtonVariants['variant']
   class?: string
+
+  to?: string
+  newPage?: boolean
 }
 
 defineEmits(['click'])
 const props = defineProps<Props>()
+
+const component = computed(() => {
+  if (props.to) {
+    return NuxtLink
+  } else {
+    return 'button'
+  }
+})
 </script>

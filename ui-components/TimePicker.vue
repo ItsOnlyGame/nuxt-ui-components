@@ -38,7 +38,7 @@ const timePickerTV = tv({
       default: {
         base: 'border-primary-500 text-primary-950 focus:border-primary-600 disabled:border-stone-400 disabled:bg-transparent',
         label: 'bg-body-light text-primary-500 peer-focus:text-primary-600 peer-disabled:text-stone-400',
-        input: 'bg-primary-200 focus:bg-primary-400'
+        input: 'bg-primary-200 focus:bg-primary-400 transition-colors'
       }
     },
     size: {

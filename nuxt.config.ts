@@ -6,6 +6,9 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true
   },
+  devServer: {
+    port: 4000
+  },
   tailwindcss: {},
   colorMode: {
     classSuffix: '',

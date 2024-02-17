@@ -1,6 +1,7 @@
 <template>
   <div :class="inputStyle.base()">
     <input
+      :autocomplete="$props.autocomplete"
       :id="$props.id"
       :type="$props.type"
       :placeholder="$props.label"
@@ -89,6 +90,7 @@ type Props = {
   invalid?: boolean
   pattern?: string
   type?: 'text' | 'password' | 'number'
+  autocomplete?: string
 
   // Number input
   min?: number | string

@@ -7,9 +7,9 @@
       </div>
 
       <div :class="styleTV.buttonsContainer()">
-        <CalendarQuickButton @click="previousCalendarMonth" :size="$props.size" quick-icon="left-arrow" />
-        <CalendarQuickButton @click="resetCalendarView" :size="$props.size" quick-icon="center" />
-        <CalendarQuickButton @click="nextCalendarMonth" :size="$props.size" quick-icon="right-arrow" />
+        <DatePickerCalendarQuickButton @click="previousCalendarMonth" :size="$props.size" quick-icon="left-arrow" />
+        <DatePickerCalendarQuickButton @click="resetCalendarView" :size="$props.size" quick-icon="center" />
+        <DatePickerCalendarQuickButton @click="nextCalendarMonth" :size="$props.size" quick-icon="right-arrow" />
       </div>
     </div>
 
@@ -18,7 +18,7 @@
         {{ weekday }}
       </span>
 
-      <CalendarDateButton
+      <DatePickerCalendarDateButton
         @click="() => setDate(day.value)"
         v-for="day in monthsDays"
         :key="day.id"
@@ -26,7 +26,7 @@
         :size="$props.size"
       >
         {{ day.value }}
-      </CalendarDateButton>
+      </DatePickerCalendarDateButton>
     </div>
   </div>
 </template>
@@ -127,7 +127,6 @@ const getCalendarButtonStyle = (day: number | null) => {
 }
 
 const resetCalendarView = () => {
-  console.log(originalView)
   calendarView.value.year = originalView.year
   calendarView.value.month = originalView.month
 }

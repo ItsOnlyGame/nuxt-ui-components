@@ -10,7 +10,7 @@
     </label>
 
     <div v-show="isOpen" :class="calendarDropdown()">
-      <Calendar
+      <DatePickerCalendar
         :size="$props.size"
         :variant="$props.variant"
         :value="$props.modelValue"

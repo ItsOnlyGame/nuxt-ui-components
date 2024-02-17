@@ -9,6 +9,8 @@
       :class="inputStyle.input()"
       :value="$props.value || $props.modelValue"
       @input="emitUpdate"
+      :min="$props.min"
+      :max="$props.max"
     />
     <label :for="$props.id" :class="inputStyle.label()">
       {{ $props.label }}
